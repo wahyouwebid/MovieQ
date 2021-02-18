@@ -1,0 +1,94 @@
+{
+  "data": [
+    {
+      "id": "t01",
+      "title": "Dragon Ball",
+      "description": "Long ago in the mountains, a fighting master known as Gohan discovered a strange boy whom he named Goku. Gohan raised him and trained Goku in martial arts until he died. The young and very strong boy was on his own, but easily managed. Then one day, Goku met a teenage girl named Bulma, whose search for the dragon balls brought her to Goku's home. Together, they set off to find all seven dragon balls in an adventure.",
+      "date": "February, 26 1986",
+      "popularity": "25",
+      "vote_average": "8.0",
+      "poster": "@drawable/poster_dragon_ball"
+    },
+    {
+      "id": "t02",
+      "title": "Naruto Shippūden",
+      "description": "Naruto Shippuuden is the continuation of the original animated TV series Naruto.The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as He has amassed a few (more dangerous) enemies, in the likes of the shinobi organization; Akatsuki.",
+      "date": "February 15, 2007",
+      "popularity": "224",
+      "vote_average": "7.3",
+      "poster": "@drawable/poster_naruto_shipudden"
+    },
+    {
+      "id": "t03",
+      "title": "Family Guy",
+      "description": "Sick, twisted, politically incorrect and Freakin' Sweet animated series featuring the adventures of the dysfunctional Griffin family. Bumbling Peter and long-suffering Lois have three kids. Stewie (a brilliant but sadistic baby bent on killing his mother and taking over the world), Meg (the oldest, and is the most unpopular girl in town) and Chris (the middle kid, he's not very bright but has a passion for tvShows). The final member of the family is Brian - a talking dog and much more than a pet, he keeps Stewie in check whilst sipping Martinis and sorting through his own life issues.",
+      "date": "January 31, 1999",
+      "popularity": "224",
+      "vote_average": "4.0",
+      "poster": "@drawable/poster_family_guy"
+    },
+    {
+      "id": "t04",
+      "title": "Supergirl",
+      "description": "Twenty-four-year-old Kara Zor-El, who was taken in by the Danvers family when she was 13 after being sent away from Krypton, must learn to embrace her powers after previously hiding them. The Danvers teach her to be careful with her powers, until she has to reveal them during an unexpected disaster, setting her on her journey of heroism.",
+      "date": "October 26, 2015",
+      "popularity": "441",
+      "vote_average": "5.5",
+      "poster": "@drawable/poster_supergirl"
+    },
+    {
+      "id": "t05",
+      "title": "The Flash",
+      "description": "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion &#8212; and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become&#8230;The Flash.",
+      "date": "October 7, 2014",
+      "popularity": "444",
+      "vote_average": "9.0",
+      "poster": "@drawable/poster_flash"
+    },
+    {
+      "id": "t06",
+      "title": "Fairy Tail",
+      "description": "Lucy is a 17-year-old girl, who wants to be a full-fledged mage. One day when visiting Harujion Town, she meets Natsu, a young man who gets sick easily by any type of transportation. But Natsu isn't just any ordinary kid, he's a member of one of the world's most infamous mage guilds: Fairy Tail.",
+      "date": "October 12, 2009",
+      "popularity": "250",
+      "vote_average": "7.9",
+      "poster": "@drawable/poster_fairytail"
+    },
+    {
+      "id": "t07",
+      "title": "Shameless",
+      "description": "hicagoan Frank Gallagher is the proud single dad of six smart, industrious, independent kids, who without him would be&#8230; perhaps better off. When Frank's not at the bar spending what little money they have, he's passed out on the floor. But the kids have found ways to grow up in spite of him. They may not be like any family you know, but they make no apologies for being exactly who they are.",
+      "date": "January 9, 2009",
+      "popularity": "609",
+      "vote_average": "8.2",
+      "poster": "@drawable/poster_shameless"
+    },
+    {
+      "id": "t08",
+      "title": "The Simpson",
+      "description": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+      "date": "December 17, 1989",
+      "popularity": "224",
+      "vote_average": "5.0",
+      "poster": "@drawable/poster_the_simpson"
+    },
+    {
+      "id": "t09",
+      "title": "Hanna",
+      "description": "This thriller and coming-of-age drama follows the journey of an extraordinary young girl as she evades the relentless pursuit of an off-book CIA agent and tries to unearth the truth behind who she is. Based on the 2011 Joe Wright film.",
+      "date": "March 28, 2019",
+      "popularity": "509",
+      "vote_average": "5.9",
+      "poster": "@drawable/poster_hanna"
+    },
+    {
+      "id": "t10",
+      "title": "Riverdale",
+      "description": "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale's wholesome facade.",
+      "date": "January 26, 2017",
+      "popularity": "455",
+      "vote_average": "9.0",
+      "poster": "@drawable/poster_riverdale"
+    }
+  ]
+}
