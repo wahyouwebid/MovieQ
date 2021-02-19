@@ -12,4 +12,8 @@
     <string name="title_content_des_img_back">Content Image Back</string>
     <string name="title_detail">Detail</string>
     <string name="title_description">Description</string>
+    <string name="title_error">Terjadi Kesalahan</string>
+    <string name="title_error_content">Silahkan coba lagi atau hubungi kontak pengembang</string>
+    <string name="title_error_ok">Oke, Saya mengerti</string>
+    <string name="title_viewers">. Viewers</string>
 </resources>

@@ -1,93 +1,106 @@
 package web.id.wahyou.movieq.ui.movie.detail
 
-import android.content.Context
-import android.content.Intent
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.IdlingRegistry
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
-import org.junit.Assert.*
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import web.id.wahyou.movieq.R
-import web.id.wahyou.movieq.model.DataMovie
-import web.id.wahyou.movieq.utils.FakeDataDummy
+import web.id.wahyou.movieq.data.model.movie.DataMovie
+import web.id.wahyou.movieq.data.repository.Repository
+import web.id.wahyou.movieq.state.MovieState
+import web.id.wahyou.movieq.ui.main.MainActivity
+import web.id.wahyou.movieq.ui.movie.MovieViewModel
+import web.id.wahyou.movieq.utils.EspressoIdlingResource
+import web.id.wahyou.movieq.utils.Utils.dateFormat
+import javax.inject.Inject
 
+@HiltAndroidTest
 class DetailMovieActivityTest {
-    private val dataDummy: DataMovie = DataMovie(
-        FakeDataDummy.movieData[0][0],
-        FakeDataDummy.movieData[0][1],
-        FakeDataDummy.movieData[0][2],
-        FakeDataDummy.movieData[0][3],
-        FakeDataDummy.movieData[0][4],
-        FakeDataDummy.movieData[0][5],
-        FakeDataDummy.movieData[0][6]
-    )
-    lateinit var context: Context
 
     @get:Rule
-    val activityRule: ActivityTestRule<DetailMovieActivity> =
-        object : ActivityTestRule<DetailMovieActivity>(DetailMovieActivity::class.java) {
-            override fun getActivityIntent(): Intent {
-                val targetContext =
-                    InstrumentationRegistry.getInstrumentation()
-                        .targetContext
-                val result = Intent(targetContext, DetailMovieActivity::class.java)
-                result.putExtra(
-                    "data", DataMovie(
-                        FakeDataDummy.movieData[0][0],
-                        FakeDataDummy.movieData[0][1],
-                        FakeDataDummy.movieData[0][2],
-                        FakeDataDummy.movieData[0][3],
-                        FakeDataDummy.movieData[0][4],
-                        FakeDataDummy.movieData[0][5],
-                        FakeDataDummy.movieData[0][6]
-                    )
-                )
-                return result
-            }
-        }
+    var hiltRule = HiltAndroidRule(this)
+
+    @Suppress("DEPRECATION")
+    @get:Rule
+    var activityRule = ActivityTestRule(MainActivity::class.java)
+
+    @Inject
+    lateinit var repository: Repository
+
+    lateinit var viewModel: MovieViewModel
 
     @Before
     fun setUp() {
-        context = activityRule.activity.applicationContext
+        hiltRule.inject()
+        viewModel = MovieViewModel(repository)
+        viewModel.getMovie()
+        IdlingRegistry.getInstance().register(EspressoIdlingResource.espressoTestIdlingResource)
     }
 
     @Test
     fun loadDetails() {
-        Espresso.onView(withId(R.id.tvTitle))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tvTitle))
-            .check(ViewAssertions.matches(withText(dataDummy.title)))
+        Thread.sleep(3000)
+        when(val state = viewModel.state.value){
+            is MovieState.Result    -> {
+                Assert.assertNotNull(state.data.data)
+                val data : DataMovie = state.data.data[0]
+                Espresso.onView(withId(R.id.rvMovie)).perform(
+                    RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0,
+                        ViewActions.click()
+                    ))
 
-        Espresso.onView(withId(R.id.tvDescription))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tvDescription))
-            .check(ViewAssertions.matches(withText(dataDummy.description)))
-
-        Espresso.onView(withId(R.id.tvPopularity))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tvPopularity))
-            .check(ViewAssertions.matches(withText(dataDummy.popularity + " Viewers")))
-
-        Espresso.onView(withId(R.id.tvRating))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tvRating))
-            .check(ViewAssertions.matches(withText(dataDummy.vote_average)))
-
-        Espresso.onView(withId(R.id.tvRelease))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        Espresso.onView(withId(R.id.tvRelease))
-            .check(ViewAssertions.matches(withText(dataDummy.date)))
-
-        Espresso.onView(withId(R.id.imgPoster))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-
-        Espresso.onView(withId(R.id.imgBackground))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+                    Thread.sleep(3000)
+    
+                    Espresso.onView(withId(R.id.tvTitle))
+                        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+                    Espresso.onView(withId(R.id.tvTitle))
+                        .check(ViewAssertions.matches(withText(data.title)))
+    
+                    Espresso.onView(withId(R.id.tvDescription))
+                        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+                    Espresso.onView(withId(R.id.tvDescription))
+                        .check(ViewAssertions.matches(withText(data.overview)))
+    
+                    Espresso.onView(withId(R.id.tvPopularity))
+                        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+                    Espresso.onView(withId(R.id.tvPopularity))
+                        .check(ViewAssertions.matches(withText(data.popularity.toString() + ". Viewers")))
+    
+                    Espresso.onView(withId(R.id.tvRating))
+                        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+                    Espresso.onView(withId(R.id.tvRating))
+                        .check(ViewAssertions.matches(withText(data.vote_average.toString())))
+    
+                    Espresso.onView(withId(R.id.tvRelease))
+                        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+                    Espresso.onView(withId(R.id.tvRelease))
+                        .check(
+                            ViewAssertions.matches(
+                                withText(
+                                    dateFormat(
+                                        data.release_date!!,
+                                        "yyyy-mm-dd",
+                                        "dd MMMM yyyy"
+                                    )
+                                )
+                            )
+                        )
+            }
+            else -> {
+                throw UnknownError()
+            }
+        }
     }
 }

@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
+import dagger.hilt.android.AndroidEntryPoint
 import web.id.wahyou.movieq.databinding.ActivitySplashBinding
 import web.id.wahyou.movieq.ui.main.MainActivity
 
+
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
     private val binding : ActivitySplashBinding by lazy {
         ActivitySplashBinding.inflate(layoutInflater)

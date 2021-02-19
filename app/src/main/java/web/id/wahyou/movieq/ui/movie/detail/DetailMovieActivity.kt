@@ -1,12 +1,16 @@
 package web.id.wahyou.movieq.ui.movie.detail
 
 import android.annotation.SuppressLint
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import com.bumptech.glide.Glide
+import web.id.wahyou.movieq.BuildConfig.imageUrl
+import web.id.wahyou.movieq.R
+import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.databinding.ActivityDetailMovieBinding
-import web.id.wahyou.movieq.model.DataMovie
+import web.id.wahyou.movieq.utils.Utils.dateFormat
 
 class DetailMovieActivity : AppCompatActivity() {
     private val binding : ActivityDetailMovieBinding by lazy {
@@ -38,20 +42,21 @@ class DetailMovieActivity : AppCompatActivity() {
         with(binding) {
             if(data!=null) {
                 tvTitle.text = data?.title
-                tvRelease.text = data?.date
-                tvPopularity.text = data?.popularity.toString() + " Viewers"
-                tvRating.text = data?.vote_average.toString()
-                tvDescription.text = data?.description
-
-                val poster = resources.getIdentifier(
-                    "web.id.wahyou.movieq:drawable/"
-                            + data?.poster?.substring(10, data!!.poster.length),
-                    null, null
+                tvRelease.text = dateFormat(
+                    data?.release_date!!,
+                    "yyyy-mm-dd",
+                    "dd MMMM yyyy"
                 )
-                Glide.with(this@DetailMovieActivity).load(poster).into(imgPoster)
+                tvPopularity.text = data?.popularity.toString() + getString(R.string.title_viewers)
+                tvRating.text = data?.vote_average.toString()
+                tvDescription.text = data?.overview
 
                 Glide.with(this@DetailMovieActivity)
-                    .load(poster)
+                    .load(imageUrl + data?.poster_path)
+                    .into(imgPoster)
+
+                Glide.with(this@DetailMovieActivity)
+                    .load( imageUrl + data?.backdrop_path)
                     .into(imgBackground)
             }
 

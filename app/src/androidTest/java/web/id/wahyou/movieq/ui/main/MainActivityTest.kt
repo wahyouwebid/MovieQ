@@ -1,46 +1,65 @@
 package web.id.wahyou.movieq.ui.main
 
-import android.content.Intent
-import androidx.annotation.UiThread
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.core.IsNull
-import org.junit.Assert
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 import web.id.wahyou.movieq.R
+import web.id.wahyou.movieq.utils.EspressoIdlingResource
 
+
+@HiltAndroidTest
+@RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTest{
+
     @get:Rule
-    val activityRule: ActivityTestRule<MainActivity> =
-            ActivityTestRule(MainActivity::class.java)
-    lateinit var mainActivity: MainActivity
+    var hiltRule = HiltAndroidRule(this)
+
+    @Suppress("DEPRECATION")
+    @get:Rule
+    var activityRule = ActivityTestRule(MainActivity::class.java)
 
     @Before
     fun setUp() {
-        mainActivity = activityRule.activity
-        activityRule.launchActivity(Intent())
-        Assert.assertThat(activityRule, IsNull.notNullValue())
+        IdlingRegistry.getInstance().register(EspressoIdlingResource.espressoTestIdlingResource)
     }
 
     @Test
     fun checkBottomBarDisplayed() {
-        Espresso.onView(withId(R.id.navView))
-                .perform(ViewActions.click())
+        onView(withId(R.id.navView))
+                .perform(click())
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
     @Test
-    @UiThread
     fun checkOtherBottomBar() {
-        Espresso.onView(allOf(withId(R.id.navigation_tvshow)))
-                .perform(ViewActions.click())
+        onView(withId(R.id.navigation_tvshow))
+                .perform(click())
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.navigation_movie))
+                .perform(click())
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.navigation_tvshow))
+                .perform(click())
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.navigation_movie))
+                .perform(click())
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
+
+    @After
+    fun tearDown() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.espressoTestIdlingResource)
     }
 }

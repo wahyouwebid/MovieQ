@@ -1,32 +1,20 @@
 package web.id.wahyou.movieq.ui.tvshow
 
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import web.id.wahyou.movieq.model.DataMovie
-import web.id.wahyou.movieq.model.DataTvShow
-import web.id.wahyou.movieq.utils.DataDummy
+import web.id.wahyou.movieq.data.repository.Repository
+import web.id.wahyou.movieq.state.TvShowState
 
-class TvShowViewModel : ViewModel() {
+class TvShowViewModel @ViewModelInject constructor(
+    val repository: Repository
+) : ViewModel() {
 
-    fun getData(): List<DataTvShow> {
-        val data: MutableList<DataTvShow> = ArrayList()
-        val json = DataDummy.movieData
-
-        for (i in json.indices) {
-            val values = json[i]
-            data.add(
-                DataTvShow(
-                    values[0],
-                    values[1],
-                    values[2],
-                    values[3],
-                    values[4],
-                    values[5],
-                    values[6]
-                )
-            )
-        }
-
-        return data
+    val state : MutableLiveData<TvShowState> by lazy {
+        MutableLiveData<TvShowState>()
     }
 
+    fun getTvShow() {
+        repository.getTvShow(state)
+    }
 }

@@ -10,8 +10,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="@dimen/size_130"
-        android:layout_height="@dimen/margin_180"
+        android:layout_width="@dimen/size_110"
+        android:layout_height="@dimen/margin_160"
         app:cardCornerRadius="@dimen/radius_8"
         app:cardElevation="@dimen/elevation_3"
         android:layout_marginBottom="@dimen/margin_8"
