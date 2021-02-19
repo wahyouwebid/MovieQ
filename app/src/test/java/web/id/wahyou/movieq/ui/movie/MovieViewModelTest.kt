@@ -3,21 +3,23 @@ package web.id.wahyou.movieq.ui.movie
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import web.id.wahyou.movieq.model.DataMovie
+import web.id.wahyou.movieq.data.FakeRemoteRepository
 
 class MovieViewModelTest {
 
-    lateinit var viewModel: MovieViewModel
+    lateinit var fakeRemoteRepository: FakeRemoteRepository
 
     @Before
     fun setUp() {
-        viewModel = MovieViewModel()
+        fakeRemoteRepository = FakeRemoteRepository()
     }
 
     @Test
     fun testGetData() {
-        val data: List<DataMovie> = viewModel.getData()
-        Assert.assertNotNull(data)
-        Assert.assertEquals(10, data.size)
+        val getData = fakeRemoteRepository.getMovie()
+            .blockingGet()
+
+        Assert.assertNotNull(getData.data)
+        Assert.assertEquals(20, getData.data.size)
     }
 }

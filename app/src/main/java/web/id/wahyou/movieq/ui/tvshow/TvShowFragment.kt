@@ -6,23 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import dagger.hilt.android.AndroidEntryPoint
+import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
+import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.databinding.FragmentTvshowBinding
-import web.id.wahyou.movieq.model.DataTvShow
-import web.id.wahyou.movieq.ui.adapter.TvShowAdapter
-import web.id.wahyou.movieq.ui.movie.detail.DetailMovieActivity
+import web.id.wahyou.movieq.state.TvShowState
 import web.id.wahyou.movieq.ui.tvshow.detail.DetailTvShowActivity
 
+@AndroidEntryPoint
 class TvShowFragment : Fragment() {
 
     private val adapter: TvShowAdapter by lazy {
         TvShowAdapter{item -> detailTvShow(item)}
     }
 
-    private val viewModel: TvShowViewModel by lazy {
-        ViewModelProviders.of(this).get(TvShowViewModel::class.java)
-    }
+    private val viewModel: TvShowViewModel by viewModels()
 
     private val binding : FragmentTvshowBinding by lazy {
         FragmentTvshowBinding.inflate(layoutInflater)
@@ -31,11 +32,19 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
-        setupData()
+        setupViewModel()
     }
 
-    private fun setupData() {
-        adapter.setData(viewModel.getData())
+    private fun setupViewModel() {
+        viewModel.state.observe(viewLifecycleOwner, {
+            when(it) {
+                is TvShowState.Loading -> getLoading(true)
+                is TvShowState.Result -> successGetData(it.data.data)
+                is TvShowState.Error -> showError()
+            }
+        })
+
+        viewModel.getTvShow()
     }
 
     private fun setupView() {
@@ -46,6 +55,36 @@ class TvShowFragment : Fragment() {
                 it.setHasFixedSize(true)
             }
         }
+    }
+
+    private fun successGetData(data: List<DataTvShow>) {
+        getLoading(false)
+        adapter.setData(data)
+    }
+
+    private fun getLoading(isloading: Boolean) {
+        with(binding){
+            if (isloading) {
+                rvTvShow.visibility = View.GONE
+                shTvShow.visibility = View.VISIBLE
+            } else {
+                rvTvShow.visibility = View.VISIBLE
+                shTvShow.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun showError() {
+        val binding = BottomSheetBinding.inflate(layoutInflater)
+        val dialog = BottomSheetDialog(requireContext())
+        dialog.setContentView(binding.root)
+        with(binding) {
+            btnOk.setOnClickListener {
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
     }
 
     private fun detailTvShow(item: DataTvShow) {

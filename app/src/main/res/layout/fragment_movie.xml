@@ -48,4 +48,28 @@
         app:layout_constraintTop_toBottomOf="@+id/search"
         tools:layout_editor_absoluteX="16dp" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/search">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <include layout="@layout/placeholder_movie" />
+                <include layout="@layout/placeholder_movie" />
+                <include layout="@layout/placeholder_movie" />
+                <include layout="@layout/placeholder_movie" />
+            </LinearLayout>
+
+        </ScrollView>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,4 +39,7 @@
     <dimen name="margin_24">24dp</dimen>
     <dimen name="size_240">240dp</dimen>
     <dimen name="margin_140">140dp</dimen>
+    <dimen name="size_110">110dp</dimen>
+    <dimen name="margin_160">160dp</dimen>
+    <dimen name="size_5">5dp</dimen>
 </resources>
