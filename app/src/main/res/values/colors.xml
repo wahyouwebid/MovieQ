@@ -8,14 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimaryLight">#684F80</color>
-    <color name="colorPrimary">#513669</color>
-    <color name="colorPrimaryDark">#472F5C</color>
+    <color name="colorPrimary">#e50914</color>
+    <color name="colorPrimaryDark">#5C2F2F</color>
     <color name="colorGreyDecorDark">#B7BFC5</color>
     <color name="colorText">#3A3A3A</color>
     <color name="white2">#F8F6F6</color>
     <color name="colorStatusbar">#D1D1D1</color>
     <color name="colorStroke">#DCDCDC</color>
-    <color name="colorSearch">#F6F6F6</color>
+    <color name="colorSearch">#EFEFEF</color>
     <color name="grey">#7a7a7a</color>
     <color name="blue_grey_100">#CFD8DC</color>
     <color name="amber_600">#ECA500</color>

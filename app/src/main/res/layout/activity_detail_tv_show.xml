@@ -27,7 +27,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="@dimen/margin_24"
+        android:layout_marginTop="@dimen/margin_28"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -40,25 +40,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:padding="@dimen/size_5"
+                android:background="@drawable/shp_circle_primary"
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 app:tint="@color/white"
                 android:contentDescription="@string/title_content_des_img_back"/>
-
-            <TextView
-                android:id="@+id/tvTitleToolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/margin_16"
-                android:layout_marginEnd="@dimen/margin_16"
-                android:layout_toEndOf="@+id/imgBack"
-                android:text="@string/title_detail"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_18"
-                android:textStyle="bold" />
         </RelativeLayout>
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -203,4 +189,13 @@
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/pgLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imgBackground"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

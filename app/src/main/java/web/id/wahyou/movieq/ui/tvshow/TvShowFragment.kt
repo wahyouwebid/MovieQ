@@ -15,6 +15,7 @@ import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.databinding.FragmentTvshowBinding
 import web.id.wahyou.movieq.state.TvShowState
 import web.id.wahyou.movieq.ui.tvshow.detail.DetailTvShowActivity
+import web.id.wahyou.movieq.utils.Utils.delay
 
 @AndroidEntryPoint
 class TvShowFragment : Fragment() {
@@ -31,6 +32,7 @@ class TvShowFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        delay()
         setupView()
         setupViewModel()
     }

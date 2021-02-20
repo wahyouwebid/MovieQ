@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class DataTvShow (
     @SerializedName("backdrop_path") val backdrop_path : String?,
-    @SerializedName("id") val id : String,
+    @SerializedName("id") val id : Int,
     @SerializedName("overview") val overview : String?,
     @SerializedName("poster_path") val poster_path : String?,
     @SerializedName("name") val name : String?,

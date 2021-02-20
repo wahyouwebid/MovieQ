@@ -2,19 +2,26 @@ package web.id.wahyou.movieq.ui.movie
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.databinding.FragmentMovieBinding
 import web.id.wahyou.movieq.state.MovieState
+import web.id.wahyou.movieq.ui.movie.adapter.HorizontalMovieAdapter
+import web.id.wahyou.movieq.ui.movie.adapter.VerticalMovieAdapter
 import web.id.wahyou.movieq.ui.movie.detail.DetailMovieActivity
+import web.id.wahyou.movieq.utils.EspressoIdlingResource
+import web.id.wahyou.movieq.utils.Utils.delay
 
 @AndroidEntryPoint
 class MovieFragment : Fragment() {
@@ -25,50 +32,129 @@ class MovieFragment : Fragment() {
         FragmentMovieBinding.inflate(layoutInflater)
     }
 
-    private val adapter: MovieAdapter by lazy {
-        MovieAdapter{item -> detailMovie(item)}
+    private val upcomingAdapter: HorizontalMovieAdapter by lazy {
+        HorizontalMovieAdapter{ item -> detailMovie(item)}
+    }
+
+    private val topRatedAdapter: HorizontalMovieAdapter by lazy {
+        HorizontalMovieAdapter{ item -> detailMovie(item)}
+    }
+
+    private val popularAdapter: VerticalMovieAdapter by lazy {
+        VerticalMovieAdapter{ item -> detailMovie(item)}
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        delay()
         setupView()
         setupViewModel()
+        setupData()
+    }
+
+    private fun setupData() {
+        viewModel.getUpcomingMovie()
+        viewModel.getPopularMovie()
+        viewModel.getTopRatedMovie()
     }
 
     private fun setupViewModel() {
-        viewModel.state.observe(viewLifecycleOwner, {
+        viewModel.stateUpcoming.observe(viewLifecycleOwner, {
             when(it){
-                is MovieState.Loading   -> getLoading(true)
-                is MovieState.Result    -> successGetData(it.data.data)
+                is MovieState.Loading   -> getLoadingUpcoming(true)
+                is MovieState.Result    -> successGetDataUpComing(it.data.data)
                 is MovieState.Error     -> showError()
             }
         })
-        viewModel.getMovie()
+
+        viewModel.stateTopRated.observe(viewLifecycleOwner, {
+            when(it){
+                is MovieState.Loading   -> getLoadingPopular(true)
+                is MovieState.Result    -> successGetDataTopRated(it.data.data)
+                is MovieState.Error     -> showError()
+            }
+        })
+
+        viewModel.statePopular.observe(viewLifecycleOwner, {
+            when(it){
+                is MovieState.Loading   -> getLoadingPopular(true)
+                is MovieState.Result    -> successGetDataPopular(it.data.data)
+                is MovieState.Error     -> showError()
+            }
+        })
     }
 
     private fun setupView() {
         with(binding) {
-            rvMovie.also {
-                it.adapter = adapter
+            rvUpcomingMovie.also {
+                it.adapter = upcomingAdapter
+                it.layoutManager = LinearLayoutManager(
+                    requireContext(), LinearLayoutManager.HORIZONTAL ,false)
+                it.setHasFixedSize(true)
+            }
+
+            rvTopRatedMovie.also {
+                it.adapter = topRatedAdapter
+                it.layoutManager = LinearLayoutManager(
+                    requireContext(), LinearLayoutManager.HORIZONTAL ,false)
+                it.setHasFixedSize(true)
+            }
+
+            rvPopularMovie.also {
+                it.adapter = popularAdapter
                 it.layoutManager = GridLayoutManager(requireContext(), 1)
                 it.setHasFixedSize(true)
             }
         }
     }
 
-    private fun successGetData(data : List<DataMovie>) {
-        getLoading(false)
-        adapter.setData(data)
+    private fun successGetDataUpComing(data : List<DataMovie>) {
+        getLoadingUpcoming(false)
+        upcomingAdapter.setData(data)
     }
 
-    private fun getLoading(loading: Boolean) {
+    private fun successGetDataTopRated(data : List<DataMovie>) {
+        getLoadingTopRated(false)
+        topRatedAdapter.setData(data)
+    }
+
+    private fun successGetDataPopular(data : List<DataMovie>) {
+        getLoadingPopular(false)
+        popularAdapter.setData(data)
+    }
+
+    private fun getLoadingUpcoming(loading: Boolean) {
         with(binding) {
             if (loading) {
-                rvMovie.visibility = View.GONE
-                shMovie.visibility = View.VISIBLE
+                rvUpcomingMovie.visibility = View.INVISIBLE
+                shUpcomingMovie.visibility = View.VISIBLE
             }else {
-                rvMovie.visibility = View.VISIBLE
-                shMovie.visibility = View.GONE
+                rvUpcomingMovie.visibility = View.VISIBLE
+                shUpcomingMovie.visibility = View.INVISIBLE
+            }
+        }
+    }
+
+    private fun getLoadingTopRated(loading: Boolean) {
+        with(binding) {
+            if (loading) {
+                rvTopRatedMovie.visibility = View.INVISIBLE
+                shTopRatedMovie.visibility = View.VISIBLE
+            }else {
+                rvTopRatedMovie.visibility = View.VISIBLE
+                shTopRatedMovie.visibility = View.INVISIBLE
+            }
+        }
+    }
+
+    private fun getLoadingPopular(loading: Boolean) {
+        with(binding) {
+            if (loading) {
+                rvPopularMovie.visibility = View.INVISIBLE
+                shPopular.visibility = View.VISIBLE
+            }else {
+                rvPopularMovie.visibility = View.VISIBLE
+                shPopular.visibility = View.INVISIBLE
             }
         }
     }

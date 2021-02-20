@@ -20,7 +20,7 @@
             android:layout_height="@dimen/size_170"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/grey"
+            android:background="@color/blue_grey_100"
             android:scaleType="centerCrop"
             android:contentDescription="@string/title_des_poster" />
 

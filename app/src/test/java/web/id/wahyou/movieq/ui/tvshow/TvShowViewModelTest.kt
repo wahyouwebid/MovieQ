@@ -20,6 +20,6 @@ class TvShowViewModelTest {
             .blockingGet()
 
         Assert.assertNotNull(getData.data)
-        Assert.assertEquals(20, getData.data?.size)
+        Assert.assertEquals(20, getData.data.size)
     }
 }

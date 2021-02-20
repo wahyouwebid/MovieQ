@@ -10,12 +10,27 @@ class MovieViewModel @ViewModelInject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    val state : MutableLiveData<MovieState> by lazy {
+    val stateUpcoming : MutableLiveData<MovieState> by lazy {
         MutableLiveData<MovieState>()
     }
 
-    fun getMovie() {
-        repository.getUpcomingMovie(state)
+    val statePopular : MutableLiveData<MovieState> by lazy {
+        MutableLiveData<MovieState>()
     }
 
+    val stateTopRated : MutableLiveData<MovieState> by lazy {
+        MutableLiveData<MovieState>()
+    }
+
+    fun getUpcomingMovie() {
+        repository.getUpcomingMovie(stateUpcoming)
+    }
+
+    fun getPopularMovie() {
+        repository.getPopularMovie(statePopular)
+    }
+
+    fun getTopRatedMovie() {
+        repository.getTopRatedMovie(stateTopRated)
+    }
 }

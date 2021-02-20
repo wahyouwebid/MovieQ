@@ -7,6 +7,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import web.id.wahyou.movieq.BuildConfig
 import web.id.wahyou.movieq.BuildConfig.apiKey
+import web.id.wahyou.movieq.data.model.detailmovie.ResponseDetailMovie
+import web.id.wahyou.movieq.data.model.detailtv.ResponseDetailTv
 import web.id.wahyou.movieq.data.model.movie.ResponseMovie
 import web.id.wahyou.movieq.data.model.tvshow.ResponseTvShow
 import web.id.wahyou.movieq.data.network.ApiService
@@ -53,8 +55,17 @@ class FakeRemoteRepository {
         addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
     }.build()
 
-    fun getMovie() : Single<ResponseMovie> =
+    fun getUpcomingMovie() : Single<ResponseMovie> =
         getRetrofit().create(ApiService::class.java).getUpcomingMovie()
+    fun getTopRatedMovie() : Single<ResponseMovie> =
+        getRetrofit().create(ApiService::class.java).getTopRatedMovie()
+    fun getPopularMovie() : Single<ResponseMovie> =
+        getRetrofit().create(ApiService::class.java).getPopularMovie()
+    fun getDetailMovie(movieId: Int) : Single<ResponseDetailMovie> =
+            getRetrofit().create(ApiService::class.java).getDetailMovie(movieId)
+
     fun getTv() : Single<ResponseTvShow> =
         getRetrofit().create(ApiService::class.java).getTvShow()
+    fun getDetailTv(tvId: Int) : Single<ResponseDetailTv> =
+            getRetrofit().create(ApiService::class.java).getDetailTvShow(tvId)
 }

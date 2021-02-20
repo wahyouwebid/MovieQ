@@ -3,11 +3,13 @@
     <string name="title_home">Home</string>
     <string name="title_movie">Movie</string>
     <string name="title_tvshow">TV Show</string>
-    <string name="title_welcome">Welcome to MovieQ</string>
+    <string name="title_welcome">Search Movies</string>
     <string name="title_content_des_img_logo">Content Image Back</string>
     <string name="title_content_des_info">Content Image Info</string>
     <string name="title_content_des_img_favo">Content image Favorite</string>
-    <string name="title_upcoming_movie">Upcoming Movie</string>
+    <string name="title_upcoming">Upcoming</string>
+    <string name="title_top_rated">Top Rated</string>
+    <string name="title_popular">Popular</string>
     <string name="title_des_poster">Content Image Poster</string>
     <string name="title_content_des_img_back">Content Image Back</string>
     <string name="title_detail">Detail</string>
@@ -16,4 +18,5 @@
     <string name="title_error_content">Silahkan coba lagi atau hubungi kontak pengembang</string>
     <string name="title_error_ok">Oke, Saya mengerti</string>
     <string name="title_viewers">. Viewers</string>
+    <string name="title_see_all">See all</string>
 </resources>

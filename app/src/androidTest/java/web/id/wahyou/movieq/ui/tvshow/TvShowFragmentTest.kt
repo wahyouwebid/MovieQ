@@ -12,6 +12,7 @@ import androidx.test.rule.ActivityTestRule
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.hamcrest.Matchers
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -40,14 +41,17 @@ class TvShowFragmentTest {
 
     @Test
     fun loadTvShows() {
-        Thread.sleep(4000)
         Espresso.onView(withId(R.id.rvTvShow))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
-        Thread.sleep(4000)
         Espresso.onView(withId(R.id.rvTvShow))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(20))
         Espresso.onView(withId(R.id.rvTvShow))
             .check(RecyclerViewItemCountAssertion(20))
+    }
+
+    @After
+    fun tearDown() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.espressoTestIdlingResource)
     }
 }

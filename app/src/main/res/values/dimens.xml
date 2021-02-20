@@ -42,4 +42,11 @@
     <dimen name="size_110">110dp</dimen>
     <dimen name="margin_160">160dp</dimen>
     <dimen name="size_5">5dp</dimen>
+    <dimen name="size_20">20dp</dimen>
+    <dimen name="margin_200">200dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="size_42">42dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="size_28">28dp</dimen>
+    <dimen name="margin_28">28dp</dimen>
 </resources>

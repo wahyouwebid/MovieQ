@@ -16,10 +16,17 @@ class MovieViewModelTest {
 
     @Test
     fun testGetData() {
-        val getData = fakeRemoteRepository.getMovie()
-            .blockingGet()
+        val dataUpcoming = fakeRemoteRepository.getUpcomingMovie().blockingGet()
+        val dataTopRated = fakeRemoteRepository.getTopRatedMovie().blockingGet()
+        val dataPopular = fakeRemoteRepository.getPopularMovie().blockingGet()
 
-        Assert.assertNotNull(getData.data)
-        Assert.assertEquals(20, getData.data.size)
+        Assert.assertNotNull(dataUpcoming.data)
+        Assert.assertEquals(20, dataUpcoming.data.size)
+
+        Assert.assertNotNull(dataTopRated.data)
+        Assert.assertEquals(20, dataTopRated.data.size)
+
+        Assert.assertNotNull(dataPopular.data)
+        Assert.assertEquals(20, dataPopular.data.size)
     }
 }

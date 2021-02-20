@@ -3,6 +3,8 @@ package web.id.wahyou.movieq.data.repository
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.disposables.CompositeDisposable
 import web.id.wahyou.movieq.data.repository.remote.RemoteRepository
+import web.id.wahyou.movieq.state.DetailMovieState
+import web.id.wahyou.movieq.state.DetailTvShowState
 import web.id.wahyou.movieq.state.MovieState
 import web.id.wahyou.movieq.state.TvShowState
 import javax.inject.Inject
@@ -12,10 +14,28 @@ import javax.inject.Singleton
 class DataRepository @Inject constructor(
     private val remoteRepository: RemoteRepository
 ) : Repository {
+    override fun getNowPlayingMovie(callback: MutableLiveData<MovieState>) =
+        remoteRepository.getNowPlayingMovie(callback)
 
-    override fun getUpcomingMovie(callback: MutableLiveData<MovieState>) = remoteRepository.getUpcomingMovie(callback)
+    override fun getUpcomingMovie(callback: MutableLiveData<MovieState>) =
+        remoteRepository.getUpcomingMovie(callback)
 
-    override fun getTvShow(callback: MutableLiveData<TvShowState>) = remoteRepository.getTvShow(callback)
+    override fun getPopularMovie(callback: MutableLiveData<MovieState>) =
+        remoteRepository.getPopularMovie(callback)
 
-    override fun getDisposible(): CompositeDisposable = remoteRepository.getDisposible()
+    override fun getTopRatedMovie(callback: MutableLiveData<MovieState>) =
+        remoteRepository.getTopRatedMovie(callback)
+
+    override fun getDetailMovie(movieId: Int, callback: MutableLiveData<DetailMovieState>) {
+        remoteRepository.getDetailMovie(movieId, callback)
+    }
+
+    override fun getTvShow(callback: MutableLiveData<TvShowState>) =
+        remoteRepository.getTvShow(callback)
+
+    override fun getDetailTvShow(tvId: Int, callback: MutableLiveData<DetailTvShowState>) =
+            remoteRepository.getDetailTvShow(tvId, callback)
+
+    override fun getDisposible(): CompositeDisposable =
+        remoteRepository.getDisposible()
 }

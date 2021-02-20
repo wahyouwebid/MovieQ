@@ -17,7 +17,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunner "web.id.wahyou.movieq.TestRunner"
     }
 
@@ -48,10 +47,8 @@ android {
     }
     testOptions {
         unitTests {
-            returnDefaultValues = true
             includeAndroidResources = true
         }
-        animationsDisabled = true
     }
 }
 
