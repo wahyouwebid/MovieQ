@@ -14,5 +14,6 @@ data class DataMovie (
     @SerializedName("release_date") val release_date : String?,
     @SerializedName("vote_average") val vote_average : Float?,
     @SerializedName("popularity") val popularity : Double?,
+    @SerializedName("genre_ids") val genreIds: List<Int>?,
     val movieType : String?
 ) : Parcelable

@@ -1,88 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/margin_8"
-    android:layout_marginTop="@dimen/margin_8">
+    android:layout_marginTop="@dimen/margin_8"
+    android:paddingTop="@dimen/margin_8">
 
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:id="@+id/cardView"
-        android:layout_width="@dimen/size_110"
-        android:layout_height="@dimen/margin_160"
-        app:cardCornerRadius="@dimen/radius_8"
-        app:cardElevation="@dimen/elevation_3"
-        android:layout_marginBottom="@dimen/margin_8"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imgPoster"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/blue_grey_100"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/title_des_poster" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/size_110"
+            android:layout_height="@dimen/margin_160"
+            app:cardCornerRadius="@dimen/radius_8"
+            app:cardElevation="@dimen/elevation_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/imgPoster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/blue_grey_100"
+                android:contentDescription="@string/title_des_poster"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_8"
-        android:background="@drawable/bg_rounded_primary"
-        android:paddingStart="@dimen/padding_16"
-        android:paddingTop="@dimen/padding_4"
-        android:paddingEnd="@dimen/padding_16"
-        android:paddingBottom="@dimen/padding_4"
-        android:layout_marginStart="@dimen/margin_16"
-        android:textColor="@color/white"
-        android:text="@string/title_movie"
-        app:layout_constraintStart_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toTopOf="parent" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginStart="@dimen/margin_16"
         android:layout_marginEnd="@dimen/margin_16"
         android:textColor="@color/colorText"
         android:textSize="@dimen/font_18"
         android:textStyle="bold"
-        android:layout_marginStart="@dimen/margin_16"
-        tools:text="@string/title_movie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/tvType"  />
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        tools:text="@string/title_movie" />
 
     <TextView
         android:id="@+id/tvPopularity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_8"
         android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
         app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        tools:text="" />
+        tools:text="200 Viewers" />
 
     <TextView
-        android:id="@+id/tvRating"
+        android:id="@+id/tvRelease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
+        android:paddingStart="@dimen/padding_8"
+        android:paddingEnd="@dimen/padding_8"
+        android:paddingTop="2dp"
+        android:textColor="@color/amber_600"
+        android:paddingBottom="@dimen/padding_4"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/tvPopularity"
+        android:background="@drawable/bg_chips"
+        tools:text="Action" />
+
+    <TextView
+        android:id="@+id/tvGenres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_8"
-        android:drawablePadding="@dimen/margin_8"
-        android:gravity="center_vertical"
-        android:layout_marginStart="@dimen/margin_16"
-        app:drawableStartCompat="@drawable/ic_baseline_stars_24"
-        app:layout_constraintStart_toEndOf="@+id/cardView"
+        android:layout_marginStart="@dimen/margin_8"
+        android:background="@drawable/bg_chips"
+        android:paddingStart="@dimen/padding_8"
+        android:textColor="@color/amber_600"
+        android:paddingTop="2dp"
+        android:paddingEnd="@dimen/padding_8"
+        android:paddingBottom="@dimen/padding_4"
+        app:layout_constraintStart_toEndOf="@+id/tvRelease"
         app:layout_constraintTop_toBottomOf="@+id/tvPopularity"
-        tools:text="82.12"
+        tools:text="Action" />
+
+    <TextView
+        android:id="@+id/tvRating"
+        android:layout_width="@dimen/size_38"
+        android:layout_height="@dimen/size_38"
+        android:background="@drawable/bg_rounded_primary"
+        android:drawablePadding="@dimen/margin_8"
+        android:gravity="center"
         android:maxEms="5"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginStart="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        android:layout_marginBottom="@dimen/margin_8"
+        tools:text="8.2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

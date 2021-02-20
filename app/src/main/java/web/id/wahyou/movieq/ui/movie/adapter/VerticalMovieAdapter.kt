@@ -2,6 +2,7 @@ package web.id.wahyou.movieq.ui.movie.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -10,6 +11,8 @@ import web.id.wahyou.movieq.BuildConfig.imageUrl
 import web.id.wahyou.movieq.R
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.databinding.AdapterMovieBinding
+import web.id.wahyou.movieq.utils.Constant
+import web.id.wahyou.movieq.utils.Utils
 
 class VerticalMovieAdapter (
     private val showDetail: (DataMovie) -> Unit
@@ -29,6 +32,20 @@ class VerticalMovieAdapter (
         with(holder.view) {
             tvTitle.text = data[position].title
             tvRating.text = data[position].vote_average.toString()
+
+            if(data[position].genreIds?.isNotEmpty() == true) {
+                tvGenres.text = data[position].genreIds?.get(0)?.let { Constant.Genres.getValue(it) }
+            } else {
+                tvGenres.visibility = View.GONE
+            }
+
+            tvRelease.text = data[position].release_date?.let {
+                Utils.dateFormat(
+                    it,
+                    "yyyy-mm-dd",
+                    "yyyy"
+                )
+            }
 
             holder.itemView.also {
                 Glide.with(it.context)

@@ -18,6 +18,7 @@ import web.id.wahyou.movieq.state.MovieState
 import web.id.wahyou.movieq.ui.movie.adapter.HorizontalMovieAdapter
 import web.id.wahyou.movieq.ui.movie.adapter.VerticalMovieAdapter
 import web.id.wahyou.movieq.ui.movie.detail.DetailMovieActivity
+import web.id.wahyou.movieq.ui.movie.popular.PopularMovieActivity
 import web.id.wahyou.movieq.ui.movie.toprated.TopRatedMovieActivity
 import web.id.wahyou.movieq.ui.movie.upcoming.UpcomingMovieActivity
 import web.id.wahyou.movieq.utils.Utils.delay
@@ -114,7 +115,7 @@ class MovieFragment : Fragment() {
             }
 
             tvSeePopular.setOnClickListener {
-                startActivity(Intent(requireContext(), UpcomingMovieActivity::class.java))
+                startActivity(Intent(requireContext(), PopularMovieActivity::class.java))
             }
         }
     }
