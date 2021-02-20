@@ -21,6 +21,7 @@ import web.id.wahyou.movieq.ui.movie.detail.DetailMovieActivity
 import web.id.wahyou.movieq.ui.movie.popular.PopularMovieActivity
 import web.id.wahyou.movieq.ui.movie.toprated.TopRatedMovieActivity
 import web.id.wahyou.movieq.ui.movie.upcoming.UpcomingMovieActivity
+import web.id.wahyou.movieq.ui.search.SearchActivity
 import web.id.wahyou.movieq.utils.Utils.delay
 
 @AndroidEntryPoint
@@ -116,6 +117,10 @@ class MovieFragment : Fragment() {
 
             tvSeePopular.setOnClickListener {
                 startActivity(Intent(requireContext(), PopularMovieActivity::class.java))
+            }
+
+            search.setOnClickListener {
+                startActivity(Intent(requireContext(), SearchActivity::class.java))
             }
         }
     }
