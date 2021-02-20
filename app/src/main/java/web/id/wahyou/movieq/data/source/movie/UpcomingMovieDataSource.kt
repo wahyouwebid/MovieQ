@@ -11,7 +11,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MovieDataSource @Inject constructor(
+class UpcomingMovieDataSource @Inject constructor(
     private val endpoint: ApiService
 ) : PageKeyedDataSource<Int, DataMovie>() {
 

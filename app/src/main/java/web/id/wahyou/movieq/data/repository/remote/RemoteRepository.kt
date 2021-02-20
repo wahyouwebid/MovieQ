@@ -81,7 +81,35 @@ class RemoteRepository @Inject constructor(
     ) {
         CoroutineScope(Dispatchers.Main).launch {
             LivePagedListBuilder(
-                factory.movieDataFactory.also {
+                factory.upcomingMovieDataFactory.also {
+                    it.liveData = callback
+                },
+                config
+            ).build().observeForever(data::postValue)
+        }
+    }
+
+    override fun getAllTopRatedMovie(
+        callback: MutableLiveData<MovieState>,
+        data: MutableLiveData<PagedList<DataMovie>>
+    ) {
+        CoroutineScope(Dispatchers.Main).launch {
+            LivePagedListBuilder(
+                factory.topRatedMovieDataFactory.also {
+                    it.liveData = callback
+                },
+                config
+            ).build().observeForever(data::postValue)
+        }
+    }
+
+    override fun getAllPopularMovie(
+        callback: MutableLiveData<MovieState>,
+        data: MutableLiveData<PagedList<DataMovie>>
+    ) {
+        CoroutineScope(Dispatchers.Main).launch {
+            LivePagedListBuilder(
+                factory.popularMovieDataFactory.also {
                     it.liveData = callback
                 },
                 config

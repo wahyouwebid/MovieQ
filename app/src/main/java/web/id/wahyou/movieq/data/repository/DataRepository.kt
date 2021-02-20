@@ -28,22 +28,29 @@ class DataRepository @Inject constructor(
     override fun getTopRatedMovie(callback: MutableLiveData<MovieState>) =
         remoteRepository.getTopRatedMovie(callback)
 
-    override fun getDetailMovie(movieId: Int, callback: MutableLiveData<DetailMovieState>) {
+    override fun getDetailMovie(movieId: Int, callback: MutableLiveData<DetailMovieState>) =
         remoteRepository.getDetailMovie(movieId, callback)
-    }
 
     override fun getAllUpcomingMovie(
         callback: MutableLiveData<MovieState>,
         data: MutableLiveData<PagedList<DataMovie>>
-    ) {
-        remoteRepository.getAllUpcomingMovie(callback, data)
-    }
+    ) = remoteRepository.getAllUpcomingMovie(callback, data)
+
+    override fun getAllTopRatedMovie(
+        callback: MutableLiveData<MovieState>,
+        data: MutableLiveData<PagedList<DataMovie>>
+    ) = remoteRepository.getAllTopRatedMovie(callback, data)
+
+    override fun getAllPopularMovie(
+        callback: MutableLiveData<MovieState>,
+        data: MutableLiveData<PagedList<DataMovie>>
+    ) = remoteRepository.getAllPopularMovie(callback, data)
 
     override fun getTvShow(callback: MutableLiveData<TvShowState>) =
         remoteRepository.getTvShow(callback)
 
     override fun getDetailTvShow(tvId: Int, callback: MutableLiveData<DetailTvShowState>) =
-            remoteRepository.getDetailTvShow(tvId, callback)
+        remoteRepository.getDetailTvShow(tvId, callback)
 
     override fun getDisposible(): CompositeDisposable =
         remoteRepository.getDisposible()

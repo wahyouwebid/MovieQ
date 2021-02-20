@@ -26,6 +26,16 @@ interface Repository {
         data : MutableLiveData<PagedList<DataMovie>>
     )
 
+    fun getAllTopRatedMovie(
+        callback : MutableLiveData<MovieState>,
+        data : MutableLiveData<PagedList<DataMovie>>
+    )
+
+    fun getAllPopularMovie(
+        callback : MutableLiveData<MovieState>,
+        data : MutableLiveData<PagedList<DataMovie>>
+    )
+
     //TV Show
     fun getTvShow(callback: MutableLiveData<TvShowState>)
     fun getDetailTvShow(tvId: Int, callback : MutableLiveData<DetailTvShowState>)
