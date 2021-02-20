@@ -2,8 +2,6 @@ package web.id.wahyou.movieq.ui.movie
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +18,7 @@ import web.id.wahyou.movieq.state.MovieState
 import web.id.wahyou.movieq.ui.movie.adapter.HorizontalMovieAdapter
 import web.id.wahyou.movieq.ui.movie.adapter.VerticalMovieAdapter
 import web.id.wahyou.movieq.ui.movie.detail.DetailMovieActivity
-import web.id.wahyou.movieq.utils.EspressoIdlingResource
+import web.id.wahyou.movieq.ui.movie.upcoming.UpcomingMovieActivity
 import web.id.wahyou.movieq.utils.Utils.delay
 
 @AndroidEntryPoint
@@ -104,6 +102,18 @@ class MovieFragment : Fragment() {
                 it.adapter = popularAdapter
                 it.layoutManager = GridLayoutManager(requireContext(), 1)
                 it.setHasFixedSize(true)
+            }
+
+            tvSeeUpcoming.setOnClickListener {
+                startActivity(Intent(requireContext(), UpcomingMovieActivity::class.java))
+            }
+
+            tvSeeTopRated.setOnClickListener {
+                startActivity(Intent(requireContext(), UpcomingMovieActivity::class.java))
+            }
+
+            tvSeePopular.setOnClickListener {
+                startActivity(Intent(requireContext(), UpcomingMovieActivity::class.java))
             }
         }
     }

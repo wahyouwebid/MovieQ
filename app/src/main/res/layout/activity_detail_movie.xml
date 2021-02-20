@@ -165,6 +165,37 @@
                     app:layout_constraintStart_toStartOf="@+id/viewDes"
                     app:layout_constraintTop_toBottomOf="@+id/tvLabelDes" />
 
+                <View
+                    android:id="@+id/viewCast"
+                    android:layout_width="@dimen/spacing_medium"
+                    android:layout_height="@dimen/spacing_mxxlarge"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/margin_24"
+                    app:layout_constraintStart_toStartOf="@+id/viewCover"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+                <TextView
+                    android:id="@+id/tvLabelCast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_cast"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/font_20"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/margin_8"
+                    app:layout_constraintBottom_toBottomOf="@+id/viewCast"
+                    app:layout_constraintStart_toEndOf="@+id/viewCast"
+                    app:layout_constraintTop_toTopOf="@+id/viewCast" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCast"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/margin_8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewCast" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.cardview.widget.CardView

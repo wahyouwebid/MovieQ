@@ -1,7 +1,9 @@
 package web.id.wahyou.movieq.data.repository
 
 import androidx.lifecycle.MutableLiveData
+import androidx.paging.PagedList
 import io.reactivex.disposables.CompositeDisposable
+import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.repository.remote.RemoteRepository
 import web.id.wahyou.movieq.state.DetailMovieState
 import web.id.wahyou.movieq.state.DetailTvShowState
@@ -28,6 +30,13 @@ class DataRepository @Inject constructor(
 
     override fun getDetailMovie(movieId: Int, callback: MutableLiveData<DetailMovieState>) {
         remoteRepository.getDetailMovie(movieId, callback)
+    }
+
+    override fun getAllUpcomingMovie(
+        callback: MutableLiveData<MovieState>,
+        data: MutableLiveData<PagedList<DataMovie>>
+    ) {
+        remoteRepository.getAllUpcomingMovie(callback, data)
     }
 
     override fun getTvShow(callback: MutableLiveData<TvShowState>) =

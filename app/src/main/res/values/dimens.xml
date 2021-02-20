@@ -49,4 +49,6 @@
     <dimen name="margin_4">4dp</dimen>
     <dimen name="size_28">28dp</dimen>
     <dimen name="margin_28">28dp</dimen>
+    <dimen name="size_90">90dp</dimen>
+    <dimen name="size_83">83dp</dimen>
 </resources>

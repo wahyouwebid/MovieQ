@@ -1,9 +1,11 @@
 package web.id.wahyou.movieq.data.repository
 
 import androidx.lifecycle.MutableLiveData
+import androidx.paging.PagedList
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import retrofit2.http.GET
+import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.movie.ResponseMovie
 import web.id.wahyou.movieq.state.DetailMovieState
 import web.id.wahyou.movieq.state.DetailTvShowState
@@ -17,6 +19,12 @@ interface Repository {
     fun getPopularMovie(callback : MutableLiveData<MovieState>)
     fun getTopRatedMovie(callback : MutableLiveData<MovieState>)
     fun getDetailMovie(movieId: Int, callback : MutableLiveData<DetailMovieState>)
+
+    //See All Movie
+    fun getAllUpcomingMovie(
+        callback : MutableLiveData<MovieState>,
+        data : MutableLiveData<PagedList<DataMovie>>
+    )
 
     //TV Show
     fun getTvShow(callback: MutableLiveData<TvShowState>)

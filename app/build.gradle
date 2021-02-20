@@ -104,6 +104,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
+    //Paging
+    implementation "androidx.paging:paging-runtime-ktx:2.1.2"
+    implementation "androidx.paging:paging-rxjava2-ktx:2.1.2"
+
     //Instrument Test
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.28-alpha'
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.28-alpha'

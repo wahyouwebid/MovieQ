@@ -3,6 +3,7 @@ package web.id.wahyou.movieq.data.network
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 import web.id.wahyou.movieq.data.model.detailmovie.ResponseDetailMovie
 import web.id.wahyou.movieq.data.model.detailtv.ResponseDetailTv
 import web.id.wahyou.movieq.data.model.movie.ResponseMovie
@@ -28,6 +29,12 @@ interface ApiService {
     fun getDetailMovie(
             @Path("movieId") movieId: Int
     ) : Single<ResponseDetailMovie>
+
+    @GET("movie/{movieType}")
+    fun getAllMovie(
+        @Path("movieType") movieType: String,
+        @Query("page") page : Int
+    ) : Single<ResponseMovie>
 
     //TV Show
     @GET("tv/airing_today")
