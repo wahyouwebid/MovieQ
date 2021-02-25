@@ -7,6 +7,7 @@ import io.reactivex.disposables.CompositeDisposable
 import retrofit2.http.GET
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.movie.ResponseMovie
+import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.state.DetailMovieState
 import web.id.wahyou.movieq.state.DetailTvShowState
 import web.id.wahyou.movieq.state.MovieState
@@ -36,9 +37,21 @@ interface Repository {
         data : MutableLiveData<PagedList<DataMovie>>
     )
 
+    fun searchMovie(
+            query: String,
+            callback : MutableLiveData<MovieState>,
+            data : MutableLiveData<PagedList<DataMovie>>
+    )
+
     //TV Show
     fun getTvShow(callback: MutableLiveData<TvShowState>)
     fun getDetailTvShow(tvId: Int, callback : MutableLiveData<DetailTvShowState>)
+
+    fun searchTvShow(
+            query: String,
+            callback: MutableLiveData<TvShowState>,
+            data : MutableLiveData<PagedList<DataTvShow>>
+    )
 
     fun getDisposible() : CompositeDisposable
 }

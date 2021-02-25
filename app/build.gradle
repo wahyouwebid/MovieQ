@@ -65,6 +65,7 @@ dependencies {
 
     //Dagger Hilt
     implementation "com.google.dagger:hilt-android:$dagger_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:hilt-android-compiler:$dagger_version"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecyc_dagger_version"
     kapt "androidx.hilt:hilt-compiler:$hilt_lifecyc_dagger_version"

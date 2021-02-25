@@ -6,8 +6,10 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import web.id.wahyou.movieq.data.network.ApiService
 import web.id.wahyou.movieq.data.source.movie.PopularMovieDataSource
+import web.id.wahyou.movieq.data.source.movie.SearchMovieDataSource
 import web.id.wahyou.movieq.data.source.movie.TopRatedMovieDataSource
 import web.id.wahyou.movieq.data.source.movie.UpcomingMovieDataSource
+import web.id.wahyou.movieq.data.source.tv.SearchTvDataSource
 import javax.inject.Singleton
 
 @Module
@@ -16,18 +18,30 @@ class DataSourceModule {
     @Provides
     @Singleton
     fun provideUpcomingMovieDataSource(
-        endpoint: ApiService
-    ) : UpcomingMovieDataSource = UpcomingMovieDataSource(endpoint)
+        apiservice: ApiService
+    ) : UpcomingMovieDataSource = UpcomingMovieDataSource(apiservice)
 
     @Provides
     @Singleton
     fun provideTopRatedDataSource(
-        endpoint: ApiService
-    ) : TopRatedMovieDataSource = TopRatedMovieDataSource(endpoint)
+            apiservice: ApiService
+    ) : TopRatedMovieDataSource = TopRatedMovieDataSource(apiservice)
 
     @Provides
     @Singleton
     fun providePopularDataSource(
-        endpoint: ApiService
-    ) : PopularMovieDataSource = PopularMovieDataSource(endpoint)
+            apiservice: ApiService
+    ) : PopularMovieDataSource = PopularMovieDataSource(apiservice)
+
+    @Provides
+    @Singleton
+    fun provideSearchMovieDataSource(
+            apiservice: ApiService
+    ) : SearchMovieDataSource = SearchMovieDataSource(apiservice)
+
+    @Provides
+    @Singleton
+    fun provideSearchTvDataSource(
+            apiservice: ApiService
+    ) : SearchTvDataSource = SearchTvDataSource(apiservice)
 }

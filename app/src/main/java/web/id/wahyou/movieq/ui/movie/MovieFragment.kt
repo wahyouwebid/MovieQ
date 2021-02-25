@@ -21,7 +21,7 @@ import web.id.wahyou.movieq.ui.movie.detail.DetailMovieActivity
 import web.id.wahyou.movieq.ui.movie.popular.PopularMovieActivity
 import web.id.wahyou.movieq.ui.movie.toprated.TopRatedMovieActivity
 import web.id.wahyou.movieq.ui.movie.upcoming.UpcomingMovieActivity
-import web.id.wahyou.movieq.ui.search.SearchActivity
+import web.id.wahyou.movieq.ui.search.movie.SearchMovieActivity
 import web.id.wahyou.movieq.utils.Utils.delay
 
 @AndroidEntryPoint
@@ -120,7 +120,7 @@ class MovieFragment : Fragment() {
             }
 
             search.setOnClickListener {
-                startActivity(Intent(requireContext(), SearchActivity::class.java))
+                startActivity(Intent(requireContext(), SearchMovieActivity::class.java))
             }
         }
     }

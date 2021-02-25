@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.search.SearchActivity"
-    android:paddingTop="36dp">
+    tools:context=".ui.search.tvshow.SearchTvShowActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -33,6 +32,7 @@
                 android:contentDescription="@string/title_content_des_img_back"/>
 
             <EditText
+                android:id="@+id/etSearch"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:layout_alignParentEnd="true"
@@ -50,7 +50,6 @@
                 android:drawableStart="@drawable/ic_search_small"
                 android:drawablePadding="@dimen/margin_8"/>
 
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
@@ -58,5 +57,55 @@
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
     </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTvShow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_16"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shTvShow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/placeholder_movie" />
+
+                <include layout="@layout/placeholder_movie" />
+
+                <include layout="@layout/placeholder_movie" />
+
+                <include layout="@layout/placeholder_movie" />
+            </LinearLayout>
+
+        </ScrollView>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lotEmpty"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/empty"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,6 @@ import web.id.wahyou.movieq.data.model.tvshow.ResponseTvShow
 interface ApiService {
 
     //Movie
-
     @GET("movie/now_playing")
     fun getNowPlayingMovie() : Single<ResponseMovie>
 
@@ -36,6 +35,12 @@ interface ApiService {
         @Query("page") page : Int
     ) : Single<ResponseMovie>
 
+    @GET("search/movie")
+    fun searchMovie(
+            @Query("query") query: String,
+            @Query("page") page : Int
+    ) : Single<ResponseMovie>
+
     //TV Show
     @GET("tv/airing_today")
     fun getTvShow() : Single<ResponseTvShow>
@@ -44,4 +49,10 @@ interface ApiService {
     fun getDetailTvShow(
             @Path("tvId") tvId: Int
     ) : Single<ResponseDetailTv>
+
+    @GET("search/tv")
+    fun searchTvShow(
+            @Query("query") query: String,
+            @Query("page") page : Int
+    ) : Single<ResponseTvShow>
 }

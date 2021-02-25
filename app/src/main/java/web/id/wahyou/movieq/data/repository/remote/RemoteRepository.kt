@@ -9,6 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import web.id.wahyou.movieq.data.factory.Factory
 import web.id.wahyou.movieq.data.model.movie.DataMovie
+import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.data.network.ApiService
 import web.id.wahyou.movieq.data.repository.Repository
 import web.id.wahyou.movieq.state.DetailMovieState
@@ -117,6 +118,18 @@ class RemoteRepository @Inject constructor(
         }
     }
 
+    override fun searchMovie(query: String, callback: MutableLiveData<MovieState>, data: MutableLiveData<PagedList<DataMovie>>) {
+        CoroutineScope(Dispatchers.Main).launch {
+            LivePagedListBuilder(
+                    factory.searchMovieDataFactory.also {
+                        it.liveData = callback
+                        it.keyword = query
+                    },
+                    config
+            ).build().observeForever(data::postValue)
+        }
+    }
+
     override fun getTvShow(callback: MutableLiveData<TvShowState>) {
         apiService.getTvShow()
                 .map<TvShowState>(TvShowState::Result)
@@ -135,6 +148,22 @@ class RemoteRepository @Inject constructor(
                 .startWith(DetailTvShowState.Loading)
                 .subscribe(callback::postValue)
                 .let { return@let disposable::add}
+    }
+
+    override fun searchTvShow(
+            query: String,
+            callback: MutableLiveData<TvShowState>,
+            data: MutableLiveData<PagedList<DataTvShow>>
+    ) {
+        CoroutineScope(Dispatchers.Main).launch {
+            LivePagedListBuilder(
+                    factory.searchTvDataFactory.also {
+                        it.keyword = query
+                        it.liveData = callback
+                    },
+                    config
+            ).build().observeForever(data::postValue)
+        }
     }
 
     override fun getDisposible(): CompositeDisposable = disposable

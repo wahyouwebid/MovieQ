@@ -14,7 +14,7 @@ import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.databinding.FragmentTvshowBinding
 import web.id.wahyou.movieq.state.TvShowState
-import web.id.wahyou.movieq.ui.search.SearchActivity
+import web.id.wahyou.movieq.ui.search.tvshow.SearchTvShowActivity
 import web.id.wahyou.movieq.ui.tvshow.detail.DetailTvShowActivity
 import web.id.wahyou.movieq.utils.Utils.delay
 
@@ -59,7 +59,7 @@ class TvShowFragment : Fragment() {
             }
 
             search.setOnClickListener {
-                startActivity(Intent(requireContext(), SearchActivity::class.java))
+                startActivity(Intent(requireContext(), SearchTvShowActivity::class.java))
             }
         }
     }

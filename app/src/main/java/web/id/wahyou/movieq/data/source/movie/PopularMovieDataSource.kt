@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Singleton
 class PopularMovieDataSource @Inject constructor(
-    private val endpoint: ApiService
+    private val apiService: ApiService
 ) : PageKeyedDataSource<Int, DataMovie>() {
 
     lateinit var liveData: MutableLiveData<MovieState>
@@ -26,7 +26,7 @@ class PopularMovieDataSource @Inject constructor(
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, DataMovie>
     ) {
-        endpoint.getAllMovie(POPULAR, 1)
+        apiService.getAllMovie(POPULAR, 1)
             .map<MovieState>{
                 callback.onResult(it.data.toMutableList(), 1, 2)
                 MovieState.Result(it)
@@ -39,7 +39,7 @@ class PopularMovieDataSource @Inject constructor(
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, DataMovie>) {
-        endpoint.getAllMovie(POPULAR, params.key)
+        apiService.getAllMovie(POPULAR, params.key)
             .map<MovieState>{
                 callback.onResult(it.data.toMutableList(), params.key + 1)
                 MovieState.Result(it)

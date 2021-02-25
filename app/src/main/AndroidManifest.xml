@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieQ.NoActionBar">
-        <activity android:name=".ui.search.SearchActivity"></activity>
+        <activity android:name=".ui.search.tvshow.SearchTvShowActivity"></activity>
+        <activity android:name=".ui.search.movie.SearchMovieActivity" />
         <activity android:name=".ui.movie.toprated.TopRatedMovieActivity" />
         <activity android:name=".ui.movie.popular.PopularMovieActivity" />
         <activity android:name=".ui.movie.upcoming.UpcomingMovieActivity" />

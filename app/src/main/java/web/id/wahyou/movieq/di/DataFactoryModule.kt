@@ -5,11 +5,15 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import web.id.wahyou.movieq.data.factory.Factory
 import web.id.wahyou.movieq.data.factory.movie.PopularMovieDataFactory
+import web.id.wahyou.movieq.data.factory.movie.SearchMovieDataFactory
 import web.id.wahyou.movieq.data.factory.movie.TopRatedMovieDataFactory
 import web.id.wahyou.movieq.data.factory.movie.UpcomingMovieDataFactory
+import web.id.wahyou.movieq.data.factory.tvshow.SearchTvDataFactory
 import web.id.wahyou.movieq.data.source.movie.PopularMovieDataSource
+import web.id.wahyou.movieq.data.source.movie.SearchMovieDataSource
 import web.id.wahyou.movieq.data.source.movie.TopRatedMovieDataSource
 import web.id.wahyou.movieq.data.source.movie.UpcomingMovieDataSource
+import web.id.wahyou.movieq.data.source.tv.SearchTvDataSource
 import javax.inject.Singleton
 
 @Module
@@ -21,11 +25,15 @@ class DataFactoryModule {
     fun provideFactory(
         upcomingMovieDataFactory: UpcomingMovieDataFactory,
         topRatedMovieDataFactory: TopRatedMovieDataFactory,
-        popularMovieDataFactory: PopularMovieDataFactory
+        popularMovieDataFactory: PopularMovieDataFactory,
+        searchMovieDataFactory: SearchMovieDataFactory,
+        searchTvDataFactory: SearchTvDataFactory
     ) : Factory = Factory(
         upcomingMovieDataFactory,
         topRatedMovieDataFactory,
-        popularMovieDataFactory
+        popularMovieDataFactory,
+        searchMovieDataFactory,
+        searchTvDataFactory
     )
 
     @Provides
@@ -45,6 +53,18 @@ class DataFactoryModule {
     fun providePopularMovieFactory(
         popularMovieDataSource: PopularMovieDataSource
     ) : PopularMovieDataFactory = PopularMovieDataFactory(popularMovieDataSource)
+
+    @Provides
+    @Singleton
+    fun provideSearchMovieFactory(
+        searchMovieDataSource: SearchMovieDataSource
+    ) : SearchMovieDataFactory = SearchMovieDataFactory(searchMovieDataSource)
+
+    @Provides
+    @Singleton
+    fun provideSearchTvFactory(
+        searchTvDataSource: SearchTvDataSource
+    ) : SearchTvDataFactory = SearchTvDataFactory(searchTvDataSource)
 
 
 }
