@@ -35,7 +35,7 @@
             android:layout_marginStart="4dp"
             android:gravity="center_vertical"
             app:autoSizeTextType="uniform"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/white"
             android:textStyle="bold"
             tools:text="Home" />
     </LinearLayout>

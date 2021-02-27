@@ -7,6 +7,9 @@ import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import web.id.wahyou.movieq.data.database.RoomDb
+import web.id.wahyou.movieq.data.database.model.MovieEntity
+import web.id.wahyou.movieq.data.database.model.TvShowEntity
 import web.id.wahyou.movieq.data.factory.Factory
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
@@ -25,6 +28,8 @@ class RemoteRepository @Inject constructor(
 ) : Repository {
 
     var disposable: CompositeDisposable = CompositeDisposable()
+
+    override fun getDisposible(): CompositeDisposable = disposable
 
     override fun getNowPlayingMovie(callback: MutableLiveData<MovieState>) {
         apiService.getNowPlayingMovie()
@@ -228,5 +233,47 @@ class RemoteRepository @Inject constructor(
         }
     }
 
-    override fun getDisposible(): CompositeDisposable = disposable
+    override fun getFavoriteMovie(data: MutableLiveData<PagedList<MovieEntity>>) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun searchFavoriteMovie(query: String, data: MutableLiveData<PagedList<MovieEntity>>) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun getFavoriteTvShow(data: MutableLiveData<PagedList<TvShowEntity>>) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun searchFavoriteTvShow(query: String, data: MutableLiveData<PagedList<TvShowEntity>>) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun addDataMovie(data: MovieEntity) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun checkDataMovie(data: MovieEntity): List<MovieEntity> {
+        throw UnsupportedOperationException()
+    }
+
+    override fun deleteDataMovie(data: MovieEntity) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun addDataTvShow(data: TvShowEntity) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun checkDataTvShow(data: TvShowEntity): List<TvShowEntity> {
+        throw UnsupportedOperationException()
+    }
+
+    override fun deleteDataTvShow(data: TvShowEntity) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun getDatabase(): RoomDb {
+        throw UnsupportedOperationException()
+    }
 }

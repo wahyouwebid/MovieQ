@@ -3,6 +3,9 @@ package web.id.wahyou.movieq.data.repository
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagedList
 import io.reactivex.disposables.CompositeDisposable
+import web.id.wahyou.movieq.data.database.RoomDb
+import web.id.wahyou.movieq.data.database.model.MovieEntity
+import web.id.wahyou.movieq.data.database.model.TvShowEntity
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.state.DetailMovieState
@@ -23,17 +26,14 @@ interface Repository {
         callback : MutableLiveData<MovieState>,
         data : MutableLiveData<PagedList<DataMovie>>
     )
-
     fun getAllTopRatedMovie(
         callback : MutableLiveData<MovieState>,
         data : MutableLiveData<PagedList<DataMovie>>
     )
-
     fun getAllPopularMovie(
         callback : MutableLiveData<MovieState>,
         data : MutableLiveData<PagedList<DataMovie>>
     )
-
     fun searchMovie(
             query: String,
             callback : MutableLiveData<MovieState>,
@@ -51,22 +51,38 @@ interface Repository {
             callback : MutableLiveData<TvShowState>,
             data : MutableLiveData<PagedList<DataTvShow>>
     )
-
     fun getAllTopRatedTvShow(
             callback : MutableLiveData<TvShowState>,
             data : MutableLiveData<PagedList<DataTvShow>>
     )
-
     fun getAllPopularTvShow(
             callback : MutableLiveData<TvShowState>,
             data : MutableLiveData<PagedList<DataTvShow>>
     )
-
     fun searchTvShow(
             query: String,
             callback: MutableLiveData<TvShowState>,
             data : MutableLiveData<PagedList<DataTvShow>>
     )
 
+    //Favorite
+    fun getFavoriteMovie(data : MutableLiveData<PagedList<MovieEntity>>)
+    fun searchFavoriteMovie(
+        query: String,
+        data : MutableLiveData<PagedList<MovieEntity>>
+    )
+    fun getFavoriteTvShow(data : MutableLiveData<PagedList<TvShowEntity>>)
+    fun searchFavoriteTvShow(
+        query: String,
+        data : MutableLiveData<PagedList<TvShowEntity>>
+    )
+    fun addDataMovie(data : MovieEntity)
+    fun checkDataMovie(data: MovieEntity) : List<MovieEntity>
+    fun deleteDataMovie(data : MovieEntity)
+    fun addDataTvShow(data : TvShowEntity)
+    fun checkDataTvShow(data : TvShowEntity) : List<TvShowEntity>
+    fun deleteDataTvShow(data : TvShowEntity)
+
     fun getDisposible() : CompositeDisposable
+    fun getDatabase() : RoomDb
 }

@@ -51,13 +51,13 @@ class DetailMovieActivityTest {
             .blockingGet()
 
         Espresso.onView(Matchers.allOf(ViewMatchers.isDisplayed(), withId(R.id.pgLoading)))
-        Espresso.onView(Matchers.allOf(ViewMatchers.isDisplayed(), withId(R.id.rvUpcomingMovie)))
-        Espresso.onView(Matchers.allOf(withId(R.id.rvUpcomingMovie), ViewMatchers.isDisplayed()))
+        Espresso.onView(Matchers.allOf(ViewMatchers.isDisplayed(), withId(R.id.rvUpcoming)))
+        Espresso.onView(Matchers.allOf(withId(R.id.rvUpcoming), ViewMatchers.isDisplayed()))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(20))
-        Espresso.onView(Matchers.allOf(withId(R.id.rvUpcomingMovie), ViewMatchers.isDisplayed()))
+        Espresso.onView(Matchers.allOf(withId(R.id.rvUpcoming), ViewMatchers.isDisplayed()))
             .check(RecyclerViewItemCountAssertion(20))
 
-        Espresso.onView(withId(R.id.rvUpcomingMovie)).perform(
+        Espresso.onView(withId(R.id.rvUpcoming)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0,
                 ViewActions.click()
             ))

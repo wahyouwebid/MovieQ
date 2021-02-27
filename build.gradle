@@ -36,6 +36,9 @@ buildscript {
 
     ext.chucker_version = "3.2.0"
 
+    ext.room_version = "2.2.5"
+    ext.paging_version = "2.1.2"
+
 
 
     repositories {

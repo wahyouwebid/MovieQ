@@ -15,6 +15,7 @@ import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.databinding.FragmentMovieBinding
 import web.id.wahyou.movieq.state.MovieState
+import web.id.wahyou.movieq.ui.favorite.FavoriteActivity
 import web.id.wahyou.movieq.ui.movie.adapter.HorizontalMovieAdapter
 import web.id.wahyou.movieq.ui.movie.adapter.VerticalMovieAdapter
 import web.id.wahyou.movieq.ui.movie.detail.DetailMovieActivity
@@ -51,6 +52,7 @@ class MovieFragment : Fragment() {
         setupView()
         setupViewModel()
         setupData()
+        setupListener()
     }
 
     private fun setupData() {
@@ -105,22 +107,6 @@ class MovieFragment : Fragment() {
                 it.adapter = popularAdapter
                 it.layoutManager = GridLayoutManager(requireContext(), 1)
                 it.setHasFixedSize(true)
-            }
-
-            tvSeeUpcoming.setOnClickListener {
-                startActivity(Intent(requireContext(), UpcomingMovieActivity::class.java))
-            }
-
-            tvSeeTopRated.setOnClickListener {
-                startActivity(Intent(requireContext(), TopRatedMovieActivity::class.java))
-            }
-
-            tvSeePopular.setOnClickListener {
-                startActivity(Intent(requireContext(), PopularMovieActivity::class.java))
-            }
-
-            search.setOnClickListener {
-                startActivity(Intent(requireContext(), SearchMovieActivity::class.java))
             }
         }
     }
@@ -193,6 +179,30 @@ class MovieFragment : Fragment() {
         startActivity(Intent(requireContext(), DetailMovieActivity::class.java).also {
             it.putExtra("data", item)
         })
+    }
+
+    private fun setupListener() {
+        with(binding) {
+            tvSeeUpcoming.setOnClickListener {
+                startActivity(Intent(requireContext(), UpcomingMovieActivity::class.java))
+            }
+
+            tvSeeTopRated.setOnClickListener {
+                startActivity(Intent(requireContext(), TopRatedMovieActivity::class.java))
+            }
+
+            tvSeePopular.setOnClickListener {
+                startActivity(Intent(requireContext(), PopularMovieActivity::class.java))
+            }
+
+            search.setOnClickListener {
+                startActivity(Intent(requireContext(), SearchMovieActivity::class.java))
+            }
+
+            imgFavorite.setOnClickListener {
+                startActivity(Intent(requireContext(), FavoriteActivity::class.java))
+            }
+        }
     }
 
     override fun onCreateView(

@@ -9,8 +9,6 @@ import web.id.wahyou.movieq.BuildConfig
 import web.id.wahyou.movieq.BuildConfig.apiKey
 import web.id.wahyou.movieq.data.model.detailmovie.ResponseDetailMovie
 import web.id.wahyou.movieq.data.model.detailtv.ResponseDetailTv
-import web.id.wahyou.movieq.data.model.movie.ResponseMovie
-import web.id.wahyou.movieq.data.model.tvshow.ResponseTvShow
 import web.id.wahyou.movieq.data.network.ApiService
 import java.util.concurrent.TimeUnit
 

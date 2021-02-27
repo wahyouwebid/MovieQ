@@ -27,4 +27,5 @@
     <string name="title_tab_movie">Movie</string>
     <string name="title_tab_tvshow">TV Show</string>
     <string name="title_content_des_img_tab_icon">Image Content Des Tab</string>
+    <string name="title_content_des_img_bg">Image Content Des Background</string>
 </resources>

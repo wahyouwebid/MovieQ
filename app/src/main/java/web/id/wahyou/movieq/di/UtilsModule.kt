@@ -1,10 +1,13 @@
 package web.id.wahyou.movieq.di
 
+import android.content.Context
 import androidx.paging.PagedList
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
+import web.id.wahyou.movieq.data.database.RoomDb
 import javax.inject.Singleton
 
 @Module
@@ -19,4 +22,10 @@ class UtilsModule {
         .setPrefetchDistance(1)
         .setEnablePlaceholders(false)
         .build()
+
+    @Provides
+    @Singleton
+    fun provideDataBase(
+        @ApplicationContext context: Context
+    ) : RoomDb = RoomDb(context)
 }

@@ -15,6 +15,7 @@ import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.databinding.FragmentTvshowBinding
 import web.id.wahyou.movieq.state.TvShowState
+import web.id.wahyou.movieq.ui.favorite.FavoriteActivity
 import web.id.wahyou.movieq.ui.search.tvshow.SearchTvShowActivity
 import web.id.wahyou.movieq.ui.tvshow.adapter.HorizontalTvShowAdapter
 import web.id.wahyou.movieq.ui.tvshow.adapter.VerticalTvShowAdapter
@@ -51,6 +52,7 @@ class TvShowFragment : Fragment() {
         setupView()
         setupViewModel()
         setupData()
+        setupListener()
     }
 
     private fun setupData(){
@@ -105,22 +107,6 @@ class TvShowFragment : Fragment() {
                 it.adapter = adapterPopular
                 it.layoutManager = GridLayoutManager(requireContext(), 3)
                 it.setHasFixedSize(true)
-            }
-
-            search.setOnClickListener {
-                startActivity(Intent(requireContext(), SearchTvShowActivity::class.java))
-            }
-
-            tvSeeAiringToday.setOnClickListener {
-                startActivity(Intent(requireContext(), AiringTodayTvShowActivity::class.java))
-            }
-
-            tvSeePopular.setOnClickListener {
-                startActivity(Intent(requireContext(), PopularTvShowActivity::class.java))
-            }
-
-            tvSeeTopRated.setOnClickListener {
-                startActivity(Intent(requireContext(), TopRatedTvShowActivity::class.java))
             }
         }
     }
@@ -193,6 +179,30 @@ class TvShowFragment : Fragment() {
         startActivity(Intent(requireContext(), DetailTvShowActivity::class.java).also {
             it.putExtra("data", item)
         })
+    }
+
+    private fun setupListener() {
+        with(binding){
+            search.setOnClickListener {
+                startActivity(Intent(requireContext(), SearchTvShowActivity::class.java))
+            }
+
+            tvSeeAiringToday.setOnClickListener {
+                startActivity(Intent(requireContext(), AiringTodayTvShowActivity::class.java))
+            }
+
+            tvSeePopular.setOnClickListener {
+                startActivity(Intent(requireContext(), PopularTvShowActivity::class.java))
+            }
+
+            tvSeeTopRated.setOnClickListener {
+                startActivity(Intent(requireContext(), TopRatedTvShowActivity::class.java))
+            }
+
+            imgFavorite.setOnClickListener {
+                startActivity(Intent(requireContext(), FavoriteActivity::class.java))
+            }
+        }
     }
 
     override fun onCreateView(

@@ -6,16 +6,22 @@ import android.view.View
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
+import androidx.room.PrimaryKey
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import web.id.wahyou.movieq.BuildConfig.imageUrl
 import web.id.wahyou.movieq.R
+import web.id.wahyou.movieq.data.database.model.MovieEntity
+import web.id.wahyou.movieq.data.database.model.TvShowEntity
 import web.id.wahyou.movieq.data.model.detailmovie.ResponseDetailMovie
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.databinding.ActivityDetailMovieBinding
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.state.DetailMovieState
+import web.id.wahyou.movieq.utils.Mapper
 import web.id.wahyou.movieq.utils.Utils.dateFormat
 import web.id.wahyou.movieq.utils.Utils.delay
 
@@ -30,6 +36,10 @@ class DetailMovieActivity : AppCompatActivity() {
 
     private val data : DataMovie? by lazy {
         intent.getParcelableExtra("data")
+    }
+
+    private val dataLocal by lazy {
+        Mapper.mapResponseToEntity(data!!)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +59,15 @@ class DetailMovieActivity : AppCompatActivity() {
             }
         })
 
-        data?.let { viewModel.getDetailMovie(it.id) }
+        viewModel.stateFavorite.observe(this, {
+            when (it) {
+                true -> setDrawableIsFavorite()
+                false -> setDrawableNotFavorite()
+            }
+        })
+
+        viewModel.check(dataLocal)
+        viewModel.getDetailMovie(data!!.id)
     }
 
     @SuppressLint("SetTextI18n")
@@ -77,6 +95,10 @@ class DetailMovieActivity : AppCompatActivity() {
             imgBack.setOnClickListener {
                 finish()
             }
+
+            btnFavorite.setOnClickListener {
+                viewModel.add(dataLocal)
+            }
         }
     }
 
@@ -101,6 +123,24 @@ class DetailMovieActivity : AppCompatActivity() {
         }
 
         dialog.show()
+    }
+
+    private fun setDrawableIsFavorite() {
+        binding.btnFavorite.setImageDrawable(
+            ContextCompat.getDrawable(
+                this,
+                R.drawable.ic_baseline_favorite_24
+            )
+        )
+    }
+
+    private fun setDrawableNotFavorite() {
+        binding.btnFavorite.setImageDrawable(
+            ContextCompat.getDrawable(
+                this,
+                R.drawable.ic_baseline_favorite_border_24
+            )
+        )
     }
 
     private fun setupStatusBar() {

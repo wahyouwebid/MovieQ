@@ -2,6 +2,8 @@ package web.id.wahyou.movieq.utils
 
 import android.os.Handler
 import android.os.Looper
+import android.view.ViewGroup
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -20,6 +22,10 @@ object Utils {
 
     fun nomalizeRating(oldValue: Float): Float{
         return ((oldValue-0)/10-0)*((5-0)+0)
+    }
+
+    fun ViewGroup.sheetBehavior(): BottomSheetBehavior<*> {
+        return BottomSheetBehavior.from(this)
     }
 
     fun delay() {
