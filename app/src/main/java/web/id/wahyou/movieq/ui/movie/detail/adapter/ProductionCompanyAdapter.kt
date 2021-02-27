@@ -1,6 +1,5 @@
-package web.id.wahyou.movieq.ui.movie.adapter
+package web.id.wahyou.movieq.ui.movie.detail.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat

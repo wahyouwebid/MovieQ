@@ -8,6 +8,7 @@ import web.id.wahyou.movieq.data.model.detailmovie.ResponseDetailMovie
 import web.id.wahyou.movieq.data.model.detailtv.ResponseDetailTv
 import web.id.wahyou.movieq.data.model.movie.ResponseMovie
 import web.id.wahyou.movieq.data.model.tvshow.ResponseTvShow
+import web.id.wahyou.movieq.data.model.videos.ResponseVideo
 
 interface ApiService {
 
@@ -67,5 +68,11 @@ interface ApiService {
             @Query("query") query: String,
             @Query("page") page : Int
     ) : Single<ResponseTvShow>
+
+    @GET("{type}/{id}/videos")
+    fun getVideos(
+            @Path("type") type: String,
+            @Path("id") id: Int
+    ) : Single<ResponseVideo>
 
 }

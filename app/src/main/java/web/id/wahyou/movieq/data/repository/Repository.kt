@@ -8,10 +8,7 @@ import web.id.wahyou.movieq.data.database.model.MovieEntity
 import web.id.wahyou.movieq.data.database.model.TvShowEntity
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
-import web.id.wahyou.movieq.state.DetailMovieState
-import web.id.wahyou.movieq.state.DetailTvShowState
-import web.id.wahyou.movieq.state.MovieState
-import web.id.wahyou.movieq.state.TvShowState
+import web.id.wahyou.movieq.state.*
 
 interface Repository {
     //Movies
@@ -82,6 +79,13 @@ interface Repository {
     fun addDataTvShow(data : TvShowEntity)
     fun checkDataTvShow(data : TvShowEntity) : List<TvShowEntity>
     fun deleteDataTvShow(data : TvShowEntity)
+
+    //Videos
+    fun getVideos(
+            type: String,
+            id: Int,
+            callback : MutableLiveData<VideoState>
+    )
 
     fun getDisposible() : CompositeDisposable
     fun getDatabase() : RoomDb

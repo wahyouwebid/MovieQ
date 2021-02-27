@@ -1,6 +1,8 @@
 package web.id.wahyou.movieq.ui.movie.detail
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -16,12 +18,18 @@ import web.id.wahyou.movieq.R
 import web.id.wahyou.movieq.data.mapper.MovieMapper
 import web.id.wahyou.movieq.data.model.detailmovie.ResponseDetailMovie
 import web.id.wahyou.movieq.data.model.movie.DataMovie
+import web.id.wahyou.movieq.data.model.videos.DataVideo
 import web.id.wahyou.movieq.databinding.ActivityDetailMovieBinding
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.state.DetailMovieState
-import web.id.wahyou.movieq.ui.movie.adapter.ProductionCompanyAdapter
+import web.id.wahyou.movieq.state.VideoState
+import web.id.wahyou.movieq.ui.movie.detail.adapter.ProductionCompanyAdapter
+import web.id.wahyou.movieq.ui.movie.detail.adapter.VideoAdapter
+import web.id.wahyou.movieq.utils.Constant.MOVIE
 import web.id.wahyou.movieq.utils.Utils.dateFormat
 import web.id.wahyou.movieq.utils.Utils.delay
+import java.lang.Exception
+
 
 @AndroidEntryPoint
 class DetailMovieActivity : AppCompatActivity() {
@@ -34,6 +42,10 @@ class DetailMovieActivity : AppCompatActivity() {
 
     private val data : DataMovie? by lazy {
         intent.getParcelableExtra("data")
+    }
+
+    private val adapterVideo : VideoAdapter by lazy {
+        VideoAdapter { item -> playVideo(item)}
     }
 
     private val adapterProduction : ProductionCompanyAdapter by lazy {
@@ -56,10 +68,18 @@ class DetailMovieActivity : AppCompatActivity() {
 
     private fun setupViewModel() {
         viewModel.state.observe(this, {
-            when(it){
-                is DetailMovieState.Loading   -> getLoadingDetailMovie(true)
-                is DetailMovieState.Result    -> successGetDetailMovie(it.data)
-                is DetailMovieState.Error     -> showError()
+            when (it) {
+                is DetailMovieState.Loading -> getLoadingDetailMovie(true)
+                is DetailMovieState.Result -> successGetDetailMovie(it.data)
+                is DetailMovieState.Error -> showError()
+            }
+        })
+
+        viewModel.stateVideo.observe(this, {
+            when (it) {
+                is VideoState.Loading -> getLoadingDetailMovie(true)
+                is VideoState.Result -> successGetDataVideos(it.data.results)
+                is VideoState.Error -> showError()
             }
         })
 
@@ -72,15 +92,26 @@ class DetailMovieActivity : AppCompatActivity() {
 
         viewModel.checkFavorite(dataLocal)
         viewModel.getDetailMovie(data!!.id)
+        viewModel.getVideos(MOVIE, data!!.id)
     }
 
     private fun setupView() {
         with(binding) {
+            rvVideo.also {
+                it.adapter = adapterVideo
+                it.layoutManager = LinearLayoutManager(
+                    this@DetailMovieActivity,
+                    LinearLayoutManager.HORIZONTAL, false
+                )
+                it.setHasFixedSize(true)
+            }
+
             rvProduction.also {
                 it.adapter = adapterProduction
                 it.layoutManager = LinearLayoutManager(
-                        this@DetailMovieActivity,
-                        LinearLayoutManager.HORIZONTAL ,false)
+                    this@DetailMovieActivity,
+                    LinearLayoutManager.HORIZONTAL, false
+                )
                 it.setHasFixedSize(true)
             }
         }
@@ -92,9 +123,9 @@ class DetailMovieActivity : AppCompatActivity() {
         with(binding) {
             tvTitle.text = response.title
             tvRelease.text = dateFormat(
-                    response.release_date,
-                    "yyyy-mm-dd",
-                    "dd MMMM yyyy"
+                response.release_date,
+                "yyyy-mm-dd",
+                "dd MMMM yyyy"
             )
             tvPopularity.text = response.popularity.toString() + getString(R.string.title_viewers)
             tvRating.text = response.vote_average.toString()
@@ -105,14 +136,34 @@ class DetailMovieActivity : AppCompatActivity() {
                     .into(imgPoster)
 
             Glide.with(this@DetailMovieActivity)
-                    .load( imageUrl + response.backdrop_path)
+                    .load(imageUrl + response.backdrop_path)
                     .into(imgBackground)
 
             btnFavorite.setOnClickListener {
                 viewModel.addToFavorite(dataLocal)
             }
 
+            if(response.genres.isNotEmpty()){
+                tvGenres.text = response.genres[0].name
+            } else {
+                tvGenres.text = "-"
+            }
             adapterProduction.setData(response.production_companies)
+        }
+    }
+
+    private fun successGetDataVideos(response: List<DataVideo>) {
+        getLoadingDetailMovie(false)
+        adapterVideo.setData(response)
+        try {
+            binding.btnTrailer.setOnClickListener {
+                val intent = Intent(
+                    Intent.ACTION_VIEW, Uri.parse("vnd.youtube://${response[0].key}")
+                )
+                startActivity(intent)
+            }
+        } catch (e : Exception) {
+            showError()
         }
     }
 
@@ -161,6 +212,11 @@ class DetailMovieActivity : AppCompatActivity() {
         binding.imgBack.setOnClickListener {
             finish()
         }
+    }
+
+    private fun playVideo(item: DataVideo) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube://${item.key}"))
+        startActivity(intent)
     }
 
     private fun setupStatusBar() {

@@ -10,10 +10,7 @@ import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.data.repository.local.LocalRepository
 import web.id.wahyou.movieq.data.repository.remote.RemoteRepository
-import web.id.wahyou.movieq.state.DetailMovieState
-import web.id.wahyou.movieq.state.DetailTvShowState
-import web.id.wahyou.movieq.state.MovieState
-import web.id.wahyou.movieq.state.TvShowState
+import web.id.wahyou.movieq.state.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -38,7 +35,10 @@ class DataRepository @Inject constructor(
         remoteRepository.getTopRatedMovie(callback)
     }
 
-    override fun getDetailMovie(movieId: Int, callback: MutableLiveData<DetailMovieState>){
+    override fun getDetailMovie(
+            movieId: Int,
+            callback: MutableLiveData<DetailMovieState>
+    ){
         remoteRepository.getDetailMovie(movieId, callback)
     }
 
@@ -128,7 +128,10 @@ class DataRepository @Inject constructor(
         localRepository.getFavoriteMovie(data)
     }
 
-    override fun searchFavoriteMovie(query: String, data: MutableLiveData<PagedList<MovieEntity>>) {
+    override fun searchFavoriteMovie(
+            query: String,
+            data: MutableLiveData<PagedList<MovieEntity>>
+    ) {
         localRepository.searchFavoriteMovie(query, data)
     }
 
@@ -136,7 +139,10 @@ class DataRepository @Inject constructor(
         localRepository.getFavoriteTvShow(data)
     }
 
-    override fun searchFavoriteTvShow(query: String, data: MutableLiveData<PagedList<TvShowEntity>>) {
+    override fun searchFavoriteTvShow(
+            query: String,
+            data: MutableLiveData<PagedList<TvShowEntity>>
+    ) {
         localRepository.searchFavoriteTvShow(query, data)
     }
 
@@ -162,6 +168,14 @@ class DataRepository @Inject constructor(
 
     override fun deleteDataTvShow(data: TvShowEntity) {
         localRepository.deleteDataTvShow(data)
+    }
+
+    override fun getVideos(
+            type: String,
+            id: Int,
+            callback: MutableLiveData<VideoState>
+    ) {
+        remoteRepository.getVideos(type, id, callback)
     }
 
     override fun getDisposible(): CompositeDisposable {

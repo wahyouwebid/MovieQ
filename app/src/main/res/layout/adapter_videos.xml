@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/size_200"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/radius_8"
+    app:cardElevation="@dimen/elevation_3"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_marginTop="@dimen/margin_4"
+    android:foreground="@drawable/bg_ripple"
+    android:layout_marginStart="@dimen/margin_16" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgPoster"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_130"
+            android:background="@color/blue_grey_100"
+            android:contentDescription="@string/title_des_poster"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgGradient"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_70"
+            android:background="@drawable/bg_gradient_black"
+            android:contentDescription="@string/title_des_poster"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_8"
+            android:textColor="@color/white"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="@+id/imgPoster"
+            app:layout_constraintEnd_toEndOf="@+id/imgGradient"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/title_movie" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/size_38"
+            android:layout_height="@dimen/size_38"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_youtube" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

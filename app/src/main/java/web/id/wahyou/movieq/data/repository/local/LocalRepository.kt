@@ -10,10 +10,7 @@ import web.id.wahyou.movieq.data.database.model.TvShowEntity
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.data.repository.Repository
-import web.id.wahyou.movieq.state.DetailMovieState
-import web.id.wahyou.movieq.state.DetailTvShowState
-import web.id.wahyou.movieq.state.MovieState
-import web.id.wahyou.movieq.state.TvShowState
+import web.id.wahyou.movieq.state.*
 import javax.inject.Inject
 
 class LocalRepository @Inject constructor(
@@ -167,6 +164,10 @@ class LocalRepository @Inject constructor(
 
     override fun deleteDataTvShow(data: TvShowEntity) {
         database.tvShow().delete(data)
+    }
+
+    override fun getVideos(type: String, id: Int, callback: MutableLiveData<VideoState>) {
+        throw UnsupportedOperationException()
     }
 
     override fun getDisposible(): CompositeDisposable = disposable

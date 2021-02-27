@@ -6,66 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".ui.movie.detail.DetailMovieActivity">
 
-    <ImageView
-        android:id="@+id/imgBackground"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_220"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"/>
+        android:layout_height="match_parent">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_220"
-        android:background="@drawable/bg_gradient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="@dimen/margin_28"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imgBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:padding="@dimen/size_5"
-                android:background="@drawable/shp_circle_primary"
-                android:src="@drawable/ic_baseline_arrow_back_24"
-                app:tint="@color/white"
-                android:contentDescription="@string/title_content_des_img_back"/>
-        </RelativeLayout>
-    </com.google.android.material.appbar.MaterialToolbar>
+                android:id="@+id/imgBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_220"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="centerCrop"/>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_140"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_220"
+                android:background="@drawable/bg_gradient"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_80">
+                android:layout_marginTop="@dimen/margin_140">
 
                 <View
                     android:id="@+id/viewCover"
@@ -73,22 +42,23 @@
                     android:layout_height="@dimen/size_170"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="@dimen/margin_16"/>
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="210dp"/>
 
                 <TextView
                     android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="28dp"
                     android:layout_marginStart="@dimen/margin_16"
                     android:layout_marginEnd="@dimen/margin_16"
                     android:text="@string/title_movie"
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/font_18"
                     android:textStyle="bold"
+                    android:layout_marginTop="@dimen/size_32"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/viewCover"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/viewCover" />
 
                 <TextView
                     android:id="@+id/tvRelease"
@@ -121,19 +91,46 @@
                     app:drawableStartCompat="@drawable/ic_baseline_preview_24" />
 
                 <TextView
+                    android:id="@+id/tvGenres"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:drawablePadding="@dimen/padding_8"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/margin_8"
+                    app:drawableStartCompat="@drawable/ic_baseline_local_movies_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/viewCover"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPopularity"
+                    tools:text="" />
+
+                <TextView
                     android:id="@+id/tvRating"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginEnd="@dimen/margin_16"
                     android:drawablePadding="@dimen/padding_8"
                     android:gravity="center_vertical"
-                    android:layout_marginEnd="@dimen/margin_16"
-                    tools:text=""
                     android:layout_marginTop="@dimen/margin_8"
                     app:drawableStartCompat="@drawable/ic_baseline_stars_black_24"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/viewCover"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPopularity" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvGenres"
+                    tools:text="" />
+
+                <Button
+                    android:id="@+id/btnTrailer"
+                    android:layout_width="150dp"
+                    android:layout_height="@dimen/size_50"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:drawableLeft="@drawable/ic_baseline_play_circle_24"
+                    android:text="@string/title_trailer"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="@+id/viewCover"
+                    app:layout_constraintStart_toStartOf="@+id/viewCover"
+                    app:layout_constraintTop_toBottomOf="@+id/viewCover"/>
 
                 <View
                     android:id="@+id/viewDes"
@@ -141,8 +138,8 @@
                     android:layout_height="@dimen/spacing_mxxlarge"
                     android:layout_marginTop="@dimen/margin_24"
                     android:background="@color/colorPrimary"
-                    app:layout_constraintStart_toStartOf="@+id/viewCover"
-                    app:layout_constraintTop_toBottomOf="@+id/viewCover" />
+                    app:layout_constraintStart_toStartOf="@+id/btnTrailer"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTrailer" />
 
                 <TextView
                     android:id="@+id/tvLabelDes"
@@ -169,13 +166,44 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvLabelDes" />
 
                 <View
-                    android:id="@+id/viewCast"
+                    android:id="@+id/viewVideo"
                     android:layout_width="@dimen/spacing_medium"
                     android:layout_height="@dimen/spacing_mxxlarge"
                     android:background="@color/colorPrimary"
                     android:layout_marginTop="@dimen/margin_24"
                     app:layout_constraintStart_toStartOf="@+id/viewCover"
                     app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+                <TextView
+                    android:id="@+id/tvLabelVideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_videos"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/font_18"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/margin_8"
+                    app:layout_constraintBottom_toBottomOf="@+id/viewVideo"
+                    app:layout_constraintStart_toEndOf="@+id/viewVideo"
+                    app:layout_constraintTop_toTopOf="@+id/viewVideo" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVideo"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/margin_8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewVideo" />
+
+                <View
+                    android:id="@+id/viewCast"
+                    android:layout_width="@dimen/spacing_medium"
+                    android:layout_height="@dimen/spacing_mxxlarge"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/margin_24"
+                    app:layout_constraintStart_toStartOf="@+id/viewCover"
+                    app:layout_constraintTop_toBottomOf="@+id/rvVideo" />
 
                 <TextView
                     android:id="@+id/tvLabelProduction"
@@ -206,10 +234,13 @@
                 android:layout_width="@dimen/size_150"
                 android:layout_height="@dimen/size_240"
                 android:layout_marginStart="@dimen/margin_16"
-                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_140"
                 android:layout_marginEnd="@dimen/margin_24"
                 app:cardCornerRadius="@dimen/radius_8"
                 app:cardElevation="@dimen/elevation_8"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@drawable/bg_ripple"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -220,28 +251,55 @@
                     android:scaleType="centerCrop" />
 
             </androidx.cardview.widget.CardView>
-        </RelativeLayout>
-    </androidx.core.widget.NestedScrollView>
-    <ProgressBar
-        android:id="@+id/pgLoading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imgBackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imgBackground"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btnFavorite"
-        android:layout_width="@dimen/size_50"
-        android:layout_height="@dimen/size_50"
-        android:layout_margin="@dimen/margin_16"
-        android:background="@drawable/button_rounded_primary"
-        android:contentDescription="@string/title_content_des_img_favo"
-        android:src="@drawable/ic_baseline_favorite_border_24"
-        android:tint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imgBackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgBackground" />
+            <ProgressBar
+                android:id="@+id/pgLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/imgBackground"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btnFavorite"
+                android:layout_width="@dimen/size_50"
+                android:layout_height="@dimen/size_50"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:layout_marginTop="@dimen/size_70"
+                android:background="@drawable/button_rounded_primary"
+                android:contentDescription="@string/title_content_des_img_favo"
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cvCover" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="@dimen/margin_28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/size_5"
+                android:background="@drawable/shp_circle_primary"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:tint="@color/white"
+                android:contentDescription="@string/title_content_des_img_back"/>
+        </RelativeLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

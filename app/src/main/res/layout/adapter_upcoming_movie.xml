@@ -16,6 +16,7 @@
         android:layout_height="@dimen/margin_180"
         app:cardCornerRadius="@dimen/radius_8"
         app:cardElevation="@dimen/elevation_3"
+        android:foreground="@drawable/bg_ripple"
         android:layout_marginBottom="@dimen/margin_8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

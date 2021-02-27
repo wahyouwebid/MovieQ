@@ -23,10 +23,12 @@
     <string name="title_see_all">See all</string>
     <string name="title_cast">Cast</string>
     <string name="title_production">Production</string>
+    <string name="title_videos">Video Trailer</string>
     <string name="title_search">Search Movies Or TV</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_tab_movie">Movie</string>
     <string name="title_tab_tvshow">TV Show</string>
     <string name="title_content_des_img_tab_icon">Image Content Des Tab</string>
     <string name="title_content_des_img_bg">Image Content Des Background</string>
+    <string name="title_trailer">Trailer</string>
 </resources>

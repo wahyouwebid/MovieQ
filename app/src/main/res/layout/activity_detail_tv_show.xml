@@ -13,7 +13,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:foreground="@drawable/bg_ripple"/>
 
     <View
         android:layout_width="match_parent"
@@ -180,6 +181,7 @@
                 android:layout_marginEnd="@dimen/margin_24"
                 app:cardCornerRadius="@dimen/radius_8"
                 app:cardElevation="@dimen/elevation_8"
+                android:foreground="@drawable/bg_ripple"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 

@@ -15,10 +15,7 @@ import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.data.network.ApiService
 import web.id.wahyou.movieq.data.repository.Repository
-import web.id.wahyou.movieq.state.DetailMovieState
-import web.id.wahyou.movieq.state.DetailTvShowState
-import web.id.wahyou.movieq.state.MovieState
-import web.id.wahyou.movieq.state.TvShowState
+import web.id.wahyou.movieq.state.*
 import javax.inject.Inject
 
 class RemoteRepository @Inject constructor(
@@ -271,6 +268,16 @@ class RemoteRepository @Inject constructor(
 
     override fun deleteDataTvShow(data: TvShowEntity) {
         throw UnsupportedOperationException()
+    }
+
+    override fun getVideos(type: String, id: Int, callback: MutableLiveData<VideoState>) {
+        apiService.getVideos(type, id)
+                .map<VideoState>(VideoState::Result)
+                .onErrorReturn(VideoState::Error)
+                .toFlowable()
+                .startWith(VideoState.Loading)
+                .subscribe(callback::postValue)
+                .let { return@let disposable::add }
     }
 
     override fun getDatabase(): RoomDb {
