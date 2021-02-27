@@ -20,7 +20,7 @@ class TopRatedTvShowViewModel @ViewModelInject constructor(
         MutableLiveData<PagedList<DataTvShow>>()
     }
 
-    fun getMovie() {
+    fun getTopRatedTvShow() {
         repository.getAllTopRatedTvShow(state, data)
     }
 }

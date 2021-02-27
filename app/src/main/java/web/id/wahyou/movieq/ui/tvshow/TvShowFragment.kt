@@ -21,6 +21,7 @@ import web.id.wahyou.movieq.ui.tvshow.adapter.VerticalTvShowAdapter
 import web.id.wahyou.movieq.ui.tvshow.airingtoday.AiringTodayTvShowActivity
 import web.id.wahyou.movieq.ui.tvshow.detail.DetailTvShowActivity
 import web.id.wahyou.movieq.ui.tvshow.popular.PopularTvShowActivity
+import web.id.wahyou.movieq.ui.tvshow.toprated.TopRatedTvShowActivity
 import web.id.wahyou.movieq.utils.Utils.delay
 
 @AndroidEntryPoint
@@ -116,6 +117,10 @@ class TvShowFragment : Fragment() {
 
             tvSeePopular.setOnClickListener {
                 startActivity(Intent(requireContext(), PopularTvShowActivity::class.java))
+            }
+
+            tvSeeTopRated.setOnClickListener {
+                startActivity(Intent(requireContext(), TopRatedTvShowActivity::class.java))
             }
         }
     }
