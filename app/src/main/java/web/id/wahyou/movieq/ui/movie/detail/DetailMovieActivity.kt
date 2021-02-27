@@ -44,6 +44,7 @@ class DetailMovieActivity : AppCompatActivity() {
         delay()
         setupStatusBar()
         setupViewModel()
+        setupListener()
     }
 
     private fun setupViewModel() {
@@ -87,10 +88,6 @@ class DetailMovieActivity : AppCompatActivity() {
             Glide.with(this@DetailMovieActivity)
                     .load( imageUrl + response.backdrop_path)
                     .into(imgBackground)
-
-            imgBack.setOnClickListener {
-                finish()
-            }
 
             btnFavorite.setOnClickListener {
                 viewModel.addToFavorite(dataLocal)
@@ -137,6 +134,12 @@ class DetailMovieActivity : AppCompatActivity() {
                 R.drawable.ic_baseline_favorite_border_24
             )
         )
+    }
+
+    private fun setupListener() {
+        binding.imgBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setupStatusBar() {

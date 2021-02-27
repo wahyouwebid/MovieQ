@@ -13,23 +13,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieQ.NoActionBar">
         <activity android:name=".ui.favorite.FavoriteActivity"
-            android:theme="@style/Theme.MovieQ.NoActionBar"/>
-        <activity android:name=".ui.tvshow.toprated.TopRatedTvShowActivity" />
-        <activity android:name=".ui.tvshow.popular.PopularTvShowActivity" />
-        <activity android:name=".ui.tvshow.airingtoday.AiringTodayTvShowActivity" />
-        <activity android:name=".ui.search.tvshow.SearchTvShowActivity" />
-        <activity android:name=".ui.search.movie.SearchMovieActivity" />
-        <activity android:name=".ui.movie.toprated.TopRatedMovieActivity" />
-        <activity android:name=".ui.movie.popular.PopularMovieActivity" />
-        <activity android:name=".ui.movie.upcoming.UpcomingMovieActivity" />
+            android:theme="@style/Theme.MovieQ.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.tvshow.toprated.TopRatedTvShowActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.tvshow.popular.PopularTvShowActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.tvshow.airingtoday.AiringTodayTvShowActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.search.tvshow.SearchTvShowActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.search.movie.SearchMovieActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.movie.toprated.TopRatedMovieActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.movie.popular.PopularMovieActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.movie.upcoming.UpcomingMovieActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.main.MainActivity"
-            android:label="@string/app_name" />
-        <activity android:name=".ui.tvshow.detail.DetailTvShowActivity" />
-        <activity android:name=".ui.movie.detail.DetailMovieActivity" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.tvshow.detail.DetailTvShowActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.movie.detail.DetailMovieActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:theme="@style/Theme.MovieQ.NoActionBar">
+            android:theme="@style/Theme.MovieQ.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

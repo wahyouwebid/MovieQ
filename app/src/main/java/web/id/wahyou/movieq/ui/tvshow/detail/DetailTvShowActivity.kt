@@ -45,6 +45,7 @@ class DetailTvShowActivity : AppCompatActivity() {
         delay()
         setupStatusBar()
         setupViewModel()
+        setupListener()
     }
 
     private fun setupViewModel() {
@@ -89,10 +90,6 @@ class DetailTvShowActivity : AppCompatActivity() {
             Glide.with(this@DetailTvShowActivity)
                     .load(imageUrl + response.backdrop_path)
                     .into(imgBackground)
-
-            imgBack.setOnClickListener {
-                finish()
-            }
 
             btnFavorite.setOnClickListener {
                 viewModel.addToFavorite(dataLocal)
@@ -140,6 +137,12 @@ class DetailTvShowActivity : AppCompatActivity() {
                         R.drawable.ic_baseline_favorite_border_24
                 )
         )
+    }
+
+    private fun setupListener() {
+        binding.imgBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setupStatusBar() {
