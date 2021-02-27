@@ -7,7 +7,6 @@ import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.network.ApiService
 import web.id.wahyou.movieq.state.MovieState
 import web.id.wahyou.movieq.utils.Constant.POPULAR
-import web.id.wahyou.movieq.utils.Constant.UPCOMING
 import javax.inject.Inject
 import javax.inject.Singleton
 

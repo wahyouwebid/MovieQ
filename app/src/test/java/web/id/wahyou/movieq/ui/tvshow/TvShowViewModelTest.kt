@@ -1,8 +1,8 @@
 package web.id.wahyou.movieq.ui.tvshow
 
 import org.junit.Assert
-import org.junit.Test
 import org.junit.Before
+import org.junit.Test
 import web.id.wahyou.movieq.data.FakeRemoteRepository
 
 class TvShowViewModelTest {

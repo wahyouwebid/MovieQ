@@ -1,14 +1,13 @@
 package web.id.wahyou.movieq.ui.tvshow.popular
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
@@ -27,7 +26,7 @@ class PopularTvShowActivity : AppCompatActivity() {
 
     private val viewModel : PopularTvShowViewModel by viewModels()
 
-    private val showAdapter : AllTvShowAdapter by lazy {
+    private val adapter : AllTvShowAdapter by lazy {
         AllTvShowAdapter{ item -> detailTvShow(item)}
     }
 
@@ -43,7 +42,7 @@ class PopularTvShowActivity : AppCompatActivity() {
     private fun setupView() {
         with(binding) {
             rvTvShow.also {
-                it.adapter = showAdapter
+                it.adapter = adapter
                 it.layoutManager = GridLayoutManager(this@PopularTvShowActivity, 3)
                 it.setHasFixedSize(true)
             }
@@ -53,21 +52,21 @@ class PopularTvShowActivity : AppCompatActivity() {
     }
 
     private fun setupData() {
-        viewModel.getTvShow()
+        viewModel.getPopularTvShow()
     }
 
     private fun setupViewModel() {
         viewModel.state.observe(this, {
             when (it) {
-                is TvShowState.Loading -> getLoadingAiringToday(true)
-                is TvShowState.Result -> getLoadingAiringToday(false)
+                is TvShowState.Loading -> getLoadingPopular(true)
+                is TvShowState.Result -> getLoadingPopular(false)
                 is TvShowState.Error -> showError()
             }
         })
-        viewModel.data.observe(this, Observer(showAdapter::submitList))
+        viewModel.data.observe(this, Observer(adapter::submitList))
     }
 
-    private fun getLoadingAiringToday(loading: Boolean) {
+    private fun getLoadingPopular(loading: Boolean) {
         with(binding) {
             if (loading) {
                 rvTvShow.visibility = View.INVISIBLE

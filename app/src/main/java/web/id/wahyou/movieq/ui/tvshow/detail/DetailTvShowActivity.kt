@@ -1,11 +1,11 @@
 package web.id.wahyou.movieq.ui.tvshow.detail
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,7 +16,6 @@ import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.databinding.ActivityDetailTvShowBinding
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.state.DetailTvShowState
-import web.id.wahyou.movieq.utils.EspressoIdlingResource
 import web.id.wahyou.movieq.utils.Utils
 import web.id.wahyou.movieq.utils.Utils.delay
 

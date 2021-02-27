@@ -111,6 +111,10 @@ class TvShowFragment : Fragment() {
             }
 
             tvSeeAiringToday.setOnClickListener {
+                startActivity(Intent(requireContext(), AiringTodayTvShowActivity::class.java))
+            }
+
+            tvSeePopular.setOnClickListener {
                 startActivity(Intent(requireContext(), PopularTvShowActivity::class.java))
             }
         }

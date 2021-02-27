@@ -6,7 +6,6 @@ import io.reactivex.disposables.CompositeDisposable
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.data.network.ApiService
 import web.id.wahyou.movieq.state.TvShowState
-import web.id.wahyou.movieq.utils.Constant.POPULAR
 import web.id.wahyou.movieq.utils.Constant.TOP_RATED
 import javax.inject.Inject
 import javax.inject.Singleton

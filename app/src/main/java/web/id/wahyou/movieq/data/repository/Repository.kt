@@ -2,15 +2,9 @@ package web.id.wahyou.movieq.data.repository
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagedList
-import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
 import web.id.wahyou.movieq.data.model.movie.DataMovie
-import web.id.wahyou.movieq.data.model.movie.ResponseMovie
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
-import web.id.wahyou.movieq.data.model.tvshow.ResponseTvShow
 import web.id.wahyou.movieq.state.DetailMovieState
 import web.id.wahyou.movieq.state.DetailTvShowState
 import web.id.wahyou.movieq.state.MovieState

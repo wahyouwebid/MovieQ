@@ -10,10 +10,8 @@ import com.jakewharton.rxbinding3.widget.textChangeEvents
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
-import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.data.repository.Repository
-import web.id.wahyou.movieq.state.MovieState
 import web.id.wahyou.movieq.state.TvShowState
 import java.util.concurrent.TimeUnit
 

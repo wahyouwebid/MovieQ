@@ -1,13 +1,11 @@
 package web.id.wahyou.movieq.ui.movie.detail
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.view.WindowManager
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +16,6 @@ import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.databinding.ActivityDetailMovieBinding
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.state.DetailMovieState
-import web.id.wahyou.movieq.utils.EspressoIdlingResource
 import web.id.wahyou.movieq.utils.Utils.dateFormat
 import web.id.wahyou.movieq.utils.Utils.delay
 

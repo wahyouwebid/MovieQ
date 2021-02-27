@@ -1,7 +1,7 @@
 package web.id.wahyou.movieq.ui.movie.detail
 
-import org.junit.Assert
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 import web.id.wahyou.movieq.data.FakeRemoteRepository

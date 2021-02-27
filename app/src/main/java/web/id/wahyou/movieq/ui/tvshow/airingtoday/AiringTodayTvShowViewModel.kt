@@ -20,7 +20,7 @@ class AiringTodayTvShowViewModel @ViewModelInject constructor(
         MutableLiveData<PagedList<DataTvShow>>()
     }
 
-    fun getMovie() {
+    fun getAiringTodayTvShow() {
         repository.getAllAiringTodayTvShow(state, data)
     }
 }

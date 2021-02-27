@@ -35,7 +35,7 @@
                 android:layout_marginStart="@dimen/margin_16"
                 android:layout_toEndOf="@+id/imgBack"
                 android:layout_centerVertical="true"
-                android:text="@string/title_on_air_today"
+                android:text="@string/title_popular"
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_18"
                 android:textStyle="bold" />
