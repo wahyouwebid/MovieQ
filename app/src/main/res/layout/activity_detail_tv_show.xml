@@ -80,7 +80,9 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_16"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginEnd="@dimen/margin_16"
                     android:text="@string/title_movie"
                     android:textColor="@color/colorText"
                     android:textSize="@dimen/font_18"
@@ -96,6 +98,7 @@
                     android:layout_marginStart="@dimen/margin_16"
                     android:layout_marginTop="@dimen/margin_8"
                     android:drawablePadding="@dimen/padding_8"
+                    android:layout_marginEnd="@dimen/margin_16"
                     android:gravity="center_vertical"
                     tools:text=""
                     app:layout_constraintEnd_toEndOf="parent"
@@ -110,6 +113,7 @@
                     android:layout_marginStart="@dimen/margin_16"
                     android:drawablePadding="@dimen/padding_8"
                     android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/margin_16"
                     tools:text=""
                     android:layout_marginTop="@dimen/margin_8"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -124,6 +128,7 @@
                     android:layout_marginStart="@dimen/margin_16"
                     android:drawablePadding="@dimen/padding_8"
                     android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/margin_16"
                     tools:text=""
                     android:layout_marginTop="@dimen/margin_8"
                     app:drawableStartCompat="@drawable/ic_baseline_stars_black_24"
@@ -198,4 +203,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imgBackground"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnFavorite"
+        android:layout_width="@dimen/size_50"
+        android:layout_height="@dimen/size_50"
+        android:layout_margin="@dimen/margin_16"
+        android:background="@drawable/button_rounded_primary"
+        android:contentDescription="@string/title_content_des_img_favo"
+        android:src="@drawable/ic_baseline_favorite_border_24"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBackground" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

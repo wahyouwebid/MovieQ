@@ -36,7 +36,11 @@ class FavoriteTvShowViewModel @ViewModelInject constructor(
             .subscribeWith(object : DisposableObserver<TextViewTextChangeEvent>() {
                 override fun onNext(t: TextViewTextChangeEvent) {
                     val keyword = t.text.toString()
-                    repository.searchFavoriteTvShow(keyword, data)
+                    if(keyword.trim{it <= ' '}.isNotEmpty() && keyword.trim{it <= ' '}.length >= 3) {
+                        repository.searchFavoriteTvShow(keyword, data)
+                    }else{
+                        repository.getFavoriteTvShow(data)
+                    }
                 }
 
                 override fun onError(e: Throwable) {

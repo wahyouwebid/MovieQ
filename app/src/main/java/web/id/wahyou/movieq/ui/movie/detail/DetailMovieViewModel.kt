@@ -24,7 +24,7 @@ class DetailMovieViewModel @ViewModelInject constructor(
         repository.getDetailMovie(movieId, state)
     }
 
-    fun add(data : MovieEntity){
+    fun addToFavorite(data : MovieEntity){
         CoroutineScope(Dispatchers.IO).launch {
             val checkData = async { repository.checkDataMovie(data) }
             if(checkData.await().isEmpty()){
@@ -41,7 +41,7 @@ class DetailMovieViewModel @ViewModelInject constructor(
         }
     }
 
-    fun check(data : MovieEntity){
+    fun checkFavorite(data : MovieEntity){
         CoroutineScope(Dispatchers.IO).launch {
             val checkData = async { repository.checkDataMovie(data) }
             if(checkData.await().isNotEmpty()){

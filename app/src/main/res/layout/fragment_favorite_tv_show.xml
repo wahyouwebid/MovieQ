@@ -42,65 +42,33 @@
                     android:layout_height="match_parent"
                     android:background="@color/white">
 
-                    <LinearLayout
-                        android:id="@+id/search"
+                    <EditText
+                        android:id="@+id/etSearch"
                         android:layout_width="match_parent"
-                        android:layout_marginStart="@dimen/margin_16"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/margin_16"
+                        android:layout_height="42dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
                         android:background="@drawable/shp_background_search"
-                        android:orientation="horizontal"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:layout_width="@dimen/size_38"
-                            android:layout_height="@dimen/size_38"
-                            android:layout_marginStart="4dp"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_baseline_info_24"
-                            android:contentDescription="@string/title_content_des_info"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/size_38"
-                            android:background="@null"
-                            android:gravity="center_vertical"
-                            android:text="@string/title_search_tv_show"
-                            android:textSize="13sp" />
-                    </LinearLayout>
+                        android:drawableStart="@drawable/ic_search_small"
+                        android:drawablePadding="@dimen/margin_8"
+                        android:hint="@string/title_search_movie"
+                        android:paddingStart="@dimen/padding_16"
+                        android:paddingTop="@dimen/padding_8"
+                        android:paddingEnd="@dimen/padding_16"
+                        android:paddingBottom="@dimen/padding_8"
+                        android:textSize="14sp"
+                        android:layout_marginStart="@dimen/margin_16"
+                        android:layout_marginEnd="@dimen/margin_16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvTvShow"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_16"
                         android:layout_marginStart="@dimen/margin_16"
-                        app:layout_constraintTop_toBottomOf="@+id/search" />
-
-                    <com.facebook.shimmer.ShimmerFrameLayout
-                        android:id="@+id/shTvShow"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@+id/search">
-
-                        <ScrollView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-                                <include layout="@layout/placeholder_tv" />
-                                <include layout="@layout/placeholder_tv" />
-                                <include layout="@layout/placeholder_tv" />
-                                <include layout="@layout/placeholder_tv" />
-                            </LinearLayout>
-
-                        </ScrollView>
-
-                    </com.facebook.shimmer.ShimmerFrameLayout>
+                        app:layout_constraintTop_toBottomOf="@+id/etSearch" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

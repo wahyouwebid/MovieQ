@@ -6,11 +6,14 @@ import android.view.View
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import web.id.wahyou.movieq.BuildConfig.imageUrl
 import web.id.wahyou.movieq.R
+import web.id.wahyou.movieq.data.mapper.MovieMapper
+import web.id.wahyou.movieq.data.mapper.TvShowMapper
 import web.id.wahyou.movieq.data.model.detailtv.ResponseDetailTv
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.databinding.ActivityDetailTvShowBinding
@@ -32,6 +35,10 @@ class DetailTvShowActivity : AppCompatActivity() {
         intent.getParcelableExtra("data")
     }
 
+    private val dataLocal by lazy {
+        TvShowMapper.mapResponseToEntity(data!!)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -49,6 +56,14 @@ class DetailTvShowActivity : AppCompatActivity() {
             }
         })
 
+        viewModel.stateFavorite.observe(this, {
+            when (it) {
+                true -> setDrawableIsFavorite()
+                false -> setDrawableNotFavorite()
+            }
+        })
+
+        viewModel.checkFavorite(dataLocal)
         data?.let { viewModel.getDetailTvShow(it.id) }
     }
 
@@ -78,6 +93,10 @@ class DetailTvShowActivity : AppCompatActivity() {
             imgBack.setOnClickListener {
                 finish()
             }
+
+            btnFavorite.setOnClickListener {
+                viewModel.addToFavorite(dataLocal)
+            }
         }
     }
 
@@ -103,6 +122,24 @@ class DetailTvShowActivity : AppCompatActivity() {
         }
 
         dialog.show()
+    }
+
+    private fun setDrawableIsFavorite() {
+        binding.btnFavorite.setImageDrawable(
+                ContextCompat.getDrawable(
+                        this,
+                        R.drawable.ic_baseline_favorite_24
+                )
+        )
+    }
+
+    private fun setDrawableNotFavorite() {
+        binding.btnFavorite.setImageDrawable(
+                ContextCompat.getDrawable(
+                        this,
+                        R.drawable.ic_baseline_favorite_border_24
+                )
+        )
     }
 
     private fun setupStatusBar() {

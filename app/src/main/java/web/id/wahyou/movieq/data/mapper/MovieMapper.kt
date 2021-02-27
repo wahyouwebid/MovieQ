@@ -1,9 +1,9 @@
-package web.id.wahyou.movieq.utils
+package web.id.wahyou.movieq.data.mapper
 
 import web.id.wahyou.movieq.data.database.model.MovieEntity
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 
-object Mapper {
+object MovieMapper {
     fun mapEntityToResponse(data: MovieEntity) =
             DataMovie(
                     data.backdrop_path,
