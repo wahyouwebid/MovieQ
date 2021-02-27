@@ -133,14 +133,14 @@ class LocalRepository @Inject constructor(
 
     override fun getFavoriteTvShow(data: MutableLiveData<PagedList<TvShowEntity>>) {
         LivePagedListBuilder(
-            database.tvshow().getData(),
+            database.tvShow().getData(),
             config
         ).build().observeForever(data::postValue)
     }
 
     override fun searchFavoriteTvShow(query: String, data: MutableLiveData<PagedList<TvShowEntity>>) {
         LivePagedListBuilder(
-            database.tvshow().searchData("%$query%"),
+            database.tvShow().searchData("%$query%"),
             config
         ).build().observeForever(data::postValue)
     }
@@ -158,15 +158,15 @@ class LocalRepository @Inject constructor(
     }
 
     override fun addDataTvShow(data: TvShowEntity) {
-        database.tvshow().add(data)
+        database.tvShow().add(data)
     }
 
     override fun checkDataTvShow(data: TvShowEntity): List<TvShowEntity> {
-        return database.tvshow().getDataById(data.id)
+        return database.tvShow().getDataById(data.id)
     }
 
     override fun deleteDataTvShow(data: TvShowEntity) {
-        database.tvshow().delete(data)
+        database.tvShow().delete(data)
     }
 
     override fun getDisposible(): CompositeDisposable = disposable

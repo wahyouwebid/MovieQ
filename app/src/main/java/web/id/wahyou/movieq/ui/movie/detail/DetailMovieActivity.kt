@@ -12,12 +12,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import web.id.wahyou.movieq.BuildConfig.imageUrl
 import web.id.wahyou.movieq.R
+import web.id.wahyou.movieq.data.mapper.MovieMapper
 import web.id.wahyou.movieq.data.model.detailmovie.ResponseDetailMovie
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.databinding.ActivityDetailMovieBinding
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.state.DetailMovieState
-import web.id.wahyou.movieq.data.mapper.MovieMapper
 import web.id.wahyou.movieq.utils.Utils.dateFormat
 import web.id.wahyou.movieq.utils.Utils.delay
 

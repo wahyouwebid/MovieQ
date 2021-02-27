@@ -13,7 +13,10 @@ import androidx.test.rule.ActivityTestRule
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.hamcrest.Matchers
-import org.junit.*
+import org.junit.After
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 import web.id.wahyou.movieq.R
 import web.id.wahyou.movieq.data.network.ApiService
 import web.id.wahyou.movieq.data.repository.Repository

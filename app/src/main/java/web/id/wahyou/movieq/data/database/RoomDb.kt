@@ -4,13 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import web.id.wahyou.movieq.BuildConfig
 import web.id.wahyou.movieq.data.database.dao.MovieDao
 import web.id.wahyou.movieq.data.database.dao.TvShowDao
-import web.id.wahyou.movieq.BuildConfig
 import web.id.wahyou.movieq.data.database.model.MovieEntity
 import web.id.wahyou.movieq.data.database.model.TvShowEntity
-import web.id.wahyou.movieq.data.model.movie.DataMovie
-import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 
 @Database(
     entities = [
@@ -19,10 +17,11 @@ import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
     ],
     version = BuildConfig.VERSION_CODE
 )
+
 abstract class RoomDb : RoomDatabase() {
 
     abstract fun movie() : MovieDao
-    abstract fun tvshow() : TvShowDao
+    abstract fun tvShow() : TvShowDao
 
     companion object {
 

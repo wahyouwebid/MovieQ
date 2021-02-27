@@ -11,7 +11,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import web.id.wahyou.movieq.data.database.model.MovieEntity
-import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.repository.Repository
 import java.util.concurrent.TimeUnit
 

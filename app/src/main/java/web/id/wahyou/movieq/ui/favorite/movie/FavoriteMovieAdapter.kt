@@ -13,7 +13,6 @@ import web.id.wahyou.movieq.BuildConfig
 import web.id.wahyou.movieq.R
 import web.id.wahyou.movieq.data.database.model.MovieEntity
 import web.id.wahyou.movieq.databinding.AdapterMovieBinding
-import web.id.wahyou.movieq.utils.Constant
 import web.id.wahyou.movieq.utils.Constant.Genres
 import web.id.wahyou.movieq.utils.Utils
 

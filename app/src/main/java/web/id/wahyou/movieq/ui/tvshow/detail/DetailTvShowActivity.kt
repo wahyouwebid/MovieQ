@@ -12,7 +12,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import web.id.wahyou.movieq.BuildConfig.imageUrl
 import web.id.wahyou.movieq.R
-import web.id.wahyou.movieq.data.mapper.MovieMapper
 import web.id.wahyou.movieq.data.mapper.TvShowMapper
 import web.id.wahyou.movieq.data.model.detailtv.ResponseDetailTv
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
