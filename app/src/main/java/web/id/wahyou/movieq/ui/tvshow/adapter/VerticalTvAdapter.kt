@@ -1,4 +1,4 @@
-package web.id.wahyou.movieq.ui.tvshow
+package web.id.wahyou.movieq.ui.tvshow.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import web.id.wahyou.movieq.BuildConfig.imageUrl
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
-import web.id.wahyou.movieq.databinding.AdapterTvshowBinding
+import web.id.wahyou.movieq.databinding.AdapterVerticalTvshowBinding
 
-class TvShowAdapter (
+class VerticalTvAdapter (
     private val showDetail: (DataTvShow) -> Unit
-) : RecyclerView.Adapter<TvShowAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<VerticalTvAdapter.ViewHolder>() {
 
     private var data = ArrayList<DataTvShow>()
 
@@ -42,9 +42,9 @@ class TvShowAdapter (
     override fun getItemCount(): Int = data.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
-        AdapterTvshowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        AdapterVerticalTvshowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
-    class ViewHolder(val view: AdapterTvshowBinding) : RecyclerView.ViewHolder(view.root)
+    class ViewHolder(val view: AdapterVerticalTvshowBinding) : RecyclerView.ViewHolder(view.root)
 
 }

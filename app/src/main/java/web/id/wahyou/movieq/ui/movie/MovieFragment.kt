@@ -87,21 +87,21 @@ class MovieFragment : Fragment() {
 
     private fun setupView() {
         with(binding) {
-            rvUpcomingMovie.also {
+            rvUpcoming.also {
                 it.adapter = upcomingAdapter
                 it.layoutManager = LinearLayoutManager(
                     requireContext(), LinearLayoutManager.HORIZONTAL ,false)
                 it.setHasFixedSize(true)
             }
 
-            rvTopRatedMovie.also {
+            rvTopRated.also {
                 it.adapter = topRatedAdapter
                 it.layoutManager = LinearLayoutManager(
                     requireContext(), LinearLayoutManager.HORIZONTAL ,false)
                 it.setHasFixedSize(true)
             }
 
-            rvPopularMovie.also {
+            rvPopular.also {
                 it.adapter = popularAdapter
                 it.layoutManager = GridLayoutManager(requireContext(), 1)
                 it.setHasFixedSize(true)
@@ -143,11 +143,11 @@ class MovieFragment : Fragment() {
     private fun getLoadingUpcoming(loading: Boolean) {
         with(binding) {
             if (loading) {
-                rvUpcomingMovie.visibility = View.INVISIBLE
-                shUpcomingMovie.visibility = View.VISIBLE
+                rvUpcoming.visibility = View.INVISIBLE
+                shUpcoming.visibility = View.VISIBLE
             }else {
-                rvUpcomingMovie.visibility = View.VISIBLE
-                shUpcomingMovie.visibility = View.INVISIBLE
+                rvUpcoming.visibility = View.VISIBLE
+                shUpcoming.visibility = View.INVISIBLE
             }
         }
     }
@@ -155,11 +155,11 @@ class MovieFragment : Fragment() {
     private fun getLoadingTopRated(loading: Boolean) {
         with(binding) {
             if (loading) {
-                rvTopRatedMovie.visibility = View.INVISIBLE
-                shTopRatedMovie.visibility = View.VISIBLE
+                rvTopRated.visibility = View.INVISIBLE
+                shTopRated.visibility = View.VISIBLE
             }else {
-                rvTopRatedMovie.visibility = View.VISIBLE
-                shTopRatedMovie.visibility = View.INVISIBLE
+                rvTopRated.visibility = View.VISIBLE
+                shTopRated.visibility = View.INVISIBLE
             }
         }
     }
@@ -167,10 +167,10 @@ class MovieFragment : Fragment() {
     private fun getLoadingPopular(loading: Boolean) {
         with(binding) {
             if (loading) {
-                rvPopularMovie.visibility = View.INVISIBLE
+                rvPopular.visibility = View.INVISIBLE
                 shPopular.visibility = View.VISIBLE
             }else {
-                rvPopularMovie.visibility = View.VISIBLE
+                rvPopular.visibility = View.VISIBLE
                 shPopular.visibility = View.INVISIBLE
             }
         }

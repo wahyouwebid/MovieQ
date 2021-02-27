@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import web.id.wahyou.movieq.BuildConfig
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
-import web.id.wahyou.movieq.databinding.AdapterTvshowBinding
+import web.id.wahyou.movieq.databinding.AdapterVerticalTvshowBinding
 
 
 class SearchTvShowAdapter (
@@ -18,7 +17,7 @@ class SearchTvShowAdapter (
 ) : PagedListAdapter<DataTvShow, SearchTvShowAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
-            AdapterTvshowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            AdapterVerticalTvshowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     @SuppressLint("SetTextI18n")
@@ -50,5 +49,5 @@ class SearchTvShowAdapter (
             }
         }
     }
-    class ViewHolder(val view: AdapterTvshowBinding) : RecyclerView.ViewHolder(view.root)
+    class ViewHolder(val view: AdapterVerticalTvshowBinding) : RecyclerView.ViewHolder(view.root)
 }

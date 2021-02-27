@@ -5,9 +5,12 @@ import androidx.paging.PagedList
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.data.model.movie.ResponseMovie
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
+import web.id.wahyou.movieq.data.model.tvshow.ResponseTvShow
 import web.id.wahyou.movieq.state.DetailMovieState
 import web.id.wahyou.movieq.state.DetailTvShowState
 import web.id.wahyou.movieq.state.MovieState
@@ -44,8 +47,26 @@ interface Repository {
     )
 
     //TV Show
-    fun getTvShow(callback: MutableLiveData<TvShowState>)
+    fun getAiringTodayTvShow(callback: MutableLiveData<TvShowState>)
+    fun getTopRatedTvShow(callback: MutableLiveData<TvShowState>)
+    fun getPopularTvShow(callback: MutableLiveData<TvShowState>)
     fun getDetailTvShow(tvId: Int, callback : MutableLiveData<DetailTvShowState>)
+
+    //See All TV Show
+    fun getAllAiringTodayTvShow(
+            callback : MutableLiveData<TvShowState>,
+            data : MutableLiveData<PagedList<DataTvShow>>
+    )
+
+    fun getAllTopRatedTvShow(
+            callback : MutableLiveData<TvShowState>,
+            data : MutableLiveData<PagedList<DataTvShow>>
+    )
+
+    fun getAllPopularTvShow(
+            callback : MutableLiveData<TvShowState>,
+            data : MutableLiveData<PagedList<DataTvShow>>
+    )
 
     fun searchTvShow(
             query: String,

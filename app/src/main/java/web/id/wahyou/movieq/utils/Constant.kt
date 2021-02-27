@@ -5,6 +5,7 @@ object Constant {
     const val UPCOMING = "upcoming"
     const val POPULAR = "popular"
     const val TOP_RATED = "top_rated"
+    const val AIRING_TODAY = "airing_today"
 
     val Genres = mapOf(
         28 to "Action",

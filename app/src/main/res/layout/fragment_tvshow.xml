@@ -66,7 +66,7 @@
                 android:contentDescription="@string/title_content_des_img_favo"/>
 
             <View
-                android:id="@+id/viewUpcomingMovie"
+                android:id="@+id/viewAiringToday"
                 android:layout_width="@dimen/spacing_medium"
                 android:layout_height="@dimen/size_20"
                 android:background="@color/colorPrimary"
@@ -80,16 +80,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_8"
-                android:text="@string/title_upcoming"
+                android:text="@string/title_on_air_today"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/font_18"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/viewUpcomingMovie"
-                app:layout_constraintStart_toEndOf="@+id/viewUpcomingMovie"
-                app:layout_constraintTop_toTopOf="@+id/viewUpcomingMovie" />
+                app:layout_constraintBottom_toBottomOf="@+id/viewAiringToday"
+                app:layout_constraintStart_toEndOf="@+id/viewAiringToday"
+                app:layout_constraintTop_toTopOf="@+id/viewAiringToday" />
 
             <TextView
-                android:id="@+id/tvSeeUpcoming"
+                android:id="@+id/tvSeeAiringToday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_16"
@@ -103,16 +103,16 @@
                 app:layout_constraintTop_toTopOf="@+id/textView" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvUpcomingMovie"
+                android:id="@+id/rvAiringToday"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
-                app:layout_constraintTop_toBottomOf="@+id/viewUpcomingMovie" />
+                app:layout_constraintTop_toBottomOf="@+id/viewAiringToday" />
 
             <com.facebook.shimmer.ShimmerFrameLayout
-                android:id="@+id/shUpcomingMovie"
+                android:id="@+id/shAiringToday"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintTop_toBottomOf="@+id/viewUpcomingMovie">
+                app:layout_constraintTop_toBottomOf="@+id/viewAiringToday">
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -132,14 +132,14 @@
             </com.facebook.shimmer.ShimmerFrameLayout>
 
             <View
-                android:id="@+id/viewTopRatedMovie"
+                android:id="@+id/viewTopRated"
                 android:layout_width="@dimen/spacing_medium"
                 android:layout_height="@dimen/size_20"
                 android:background="@color/colorPrimary"
                 android:layout_marginStart="@dimen/margin_16"
                 android:layout_marginTop="@dimen/size_20"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvUpcomingMovie" />
+                app:layout_constraintTop_toBottomOf="@+id/rvAiringToday" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -150,9 +150,9 @@
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/font_18"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/viewTopRatedMovie"
-                app:layout_constraintStart_toEndOf="@+id/viewUpcomingMovie"
-                app:layout_constraintTop_toTopOf="@+id/viewTopRatedMovie" />
+                app:layout_constraintBottom_toBottomOf="@+id/viewTopRated"
+                app:layout_constraintStart_toEndOf="@+id/viewAiringToday"
+                app:layout_constraintTop_toTopOf="@+id/viewTopRated" />
 
             <TextView
                 android:id="@+id/tvSeeTopRated"
@@ -168,16 +168,16 @@
                 app:layout_constraintTop_toTopOf="@+id/textView2" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTopRatedMovie"
+                android:id="@+id/rvTopRated"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
-                app:layout_constraintTop_toBottomOf="@+id/viewTopRatedMovie" />
+                app:layout_constraintTop_toBottomOf="@+id/viewTopRated" />
 
             <com.facebook.shimmer.ShimmerFrameLayout
-                android:id="@+id/shTopRatedMovie"
+                android:id="@+id/shTopRated"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintTop_toBottomOf="@+id/viewTopRatedMovie">
+                app:layout_constraintTop_toBottomOf="@+id/viewTopRated">
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -197,14 +197,14 @@
             </com.facebook.shimmer.ShimmerFrameLayout>
 
             <View
-                android:id="@+id/viewPopularMovie"
+                android:id="@+id/viewPopular"
                 android:layout_width="@dimen/spacing_medium"
                 android:layout_height="@dimen/size_20"
                 android:background="@color/colorPrimary"
                 android:layout_marginStart="@dimen/margin_16"
                 android:layout_marginTop="@dimen/size_20"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvTopRatedMovie" />
+                app:layout_constraintTop_toBottomOf="@+id/rvTopRated" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -215,9 +215,9 @@
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/font_18"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/viewPopularMovie"
-                app:layout_constraintStart_toEndOf="@+id/viewPopularMovie"
-                app:layout_constraintTop_toTopOf="@+id/viewPopularMovie" />
+                app:layout_constraintBottom_toBottomOf="@+id/viewPopular"
+                app:layout_constraintStart_toEndOf="@+id/viewPopular"
+                app:layout_constraintTop_toTopOf="@+id/viewPopular" />
 
             <TextView
                 android:id="@+id/tvSeePopular"
@@ -233,19 +233,18 @@
                 app:layout_constraintTop_toTopOf="@+id/textView4" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTvShow"
+                android:id="@+id/rvPopular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_16"
                 android:layout_marginStart="@dimen/margin_16"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewPopularMovie" />
+                app:layout_constraintTop_toBottomOf="@+id/viewPopular" />
 
             <com.facebook.shimmer.ShimmerFrameLayout
-                android:id="@+id/shTvShow"
+                android:id="@+id/shPopular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/viewPopularMovie">
+                app:layout_constraintTop_toBottomOf="@+id/viewPopular">
 
                 <ScrollView
                     android:layout_width="match_parent"

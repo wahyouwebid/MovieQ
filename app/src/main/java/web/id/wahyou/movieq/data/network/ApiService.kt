@@ -43,16 +43,29 @@ interface ApiService {
 
     //TV Show
     @GET("tv/airing_today")
-    fun getTvShow() : Single<ResponseTvShow>
+    fun getAiringTodayTvShow() : Single<ResponseTvShow>
 
     @GET("tv/{tvId}")
     fun getDetailTvShow(
             @Path("tvId") tvId: Int
     ) : Single<ResponseDetailTv>
 
+    @GET("tv/top_rated")
+    fun getTopRatedTvShow() : Single<ResponseTvShow>
+
+    @GET("tv/popular")
+    fun getPopularTvShow() : Single<ResponseTvShow>
+
+    @GET("tv/{TvType}")
+    fun getAllTvShow(
+            @Path("TvType") TvType: String,
+            @Query("page") page : Int
+    ) : Single<ResponseTvShow>
+
     @GET("search/tv")
     fun searchTvShow(
             @Query("query") query: String,
             @Query("page") page : Int
     ) : Single<ResponseTvShow>
+
 }

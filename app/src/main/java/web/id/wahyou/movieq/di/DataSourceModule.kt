@@ -9,7 +9,10 @@ import web.id.wahyou.movieq.data.source.movie.PopularMovieDataSource
 import web.id.wahyou.movieq.data.source.movie.SearchMovieDataSource
 import web.id.wahyou.movieq.data.source.movie.TopRatedMovieDataSource
 import web.id.wahyou.movieq.data.source.movie.UpcomingMovieDataSource
+import web.id.wahyou.movieq.data.source.tv.AiringTvDataSource
+import web.id.wahyou.movieq.data.source.tv.PopularTvDataSource
 import web.id.wahyou.movieq.data.source.tv.SearchTvDataSource
+import web.id.wahyou.movieq.data.source.tv.TopRatedTvDataSource
 import javax.inject.Singleton
 
 @Module
@@ -29,7 +32,7 @@ class DataSourceModule {
 
     @Provides
     @Singleton
-    fun providePopularDataSource(
+    fun providePopularMovieDataSource(
             apiservice: ApiService
     ) : PopularMovieDataSource = PopularMovieDataSource(apiservice)
 
@@ -38,6 +41,24 @@ class DataSourceModule {
     fun provideSearchMovieDataSource(
             apiservice: ApiService
     ) : SearchMovieDataSource = SearchMovieDataSource(apiservice)
+
+    @Provides
+    @Singleton
+    fun provideAiringTvDataSource(
+            apiservice: ApiService
+    ) : AiringTvDataSource = AiringTvDataSource(apiservice)
+
+    @Provides
+    @Singleton
+    fun provideTopRatedTvDataSource(
+            apiservice: ApiService
+    ) : TopRatedTvDataSource = TopRatedTvDataSource(apiservice)
+
+    @Provides
+    @Singleton
+    fun providePopularTvDataSource(
+            apiservice: ApiService
+    ) : PopularTvDataSource = PopularTvDataSource(apiservice)
 
     @Provides
     @Singleton

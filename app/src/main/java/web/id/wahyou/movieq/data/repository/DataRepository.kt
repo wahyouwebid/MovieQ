@@ -38,18 +38,18 @@ class DataRepository @Inject constructor(
     ) = remoteRepository.getDetailMovie(movieId, callback)
 
     override fun getAllUpcomingMovie(
-        callback: MutableLiveData<MovieState>,
-        data: MutableLiveData<PagedList<DataMovie>>
+            callback: MutableLiveData<MovieState>,
+            data: MutableLiveData<PagedList<DataMovie>>
     ) = remoteRepository.getAllUpcomingMovie(callback, data)
 
     override fun getAllTopRatedMovie(
-        callback: MutableLiveData<MovieState>,
-        data: MutableLiveData<PagedList<DataMovie>>
+            callback: MutableLiveData<MovieState>,
+            data: MutableLiveData<PagedList<DataMovie>>
     ) = remoteRepository.getAllTopRatedMovie(callback, data)
 
     override fun getAllPopularMovie(
-        callback: MutableLiveData<MovieState>,
-        data: MutableLiveData<PagedList<DataMovie>>
+            callback: MutableLiveData<MovieState>,
+            data: MutableLiveData<PagedList<DataMovie>>
     ) = remoteRepository.getAllPopularMovie(callback, data)
 
     override fun searchMovie(
@@ -58,13 +58,36 @@ class DataRepository @Inject constructor(
             data: MutableLiveData<PagedList<DataMovie>>
     ) = remoteRepository.searchMovie(query, callback, data)
 
-    override fun getTvShow(
+    override fun getAiringTodayTvShow(
             callback: MutableLiveData<TvShowState>
-    ) = remoteRepository.getTvShow(callback)
+    ) = remoteRepository.getAiringTodayTvShow(callback)
+
+    override fun getTopRatedTvShow(
+            callback: MutableLiveData<TvShowState>
+    ) = remoteRepository.getTopRatedTvShow(callback)
+
+    override fun getPopularTvShow(
+            callback: MutableLiveData<TvShowState>
+    ) = remoteRepository.getPopularTvShow(callback)
 
     override fun getDetailTvShow(
             tvId: Int, callback: MutableLiveData<DetailTvShowState>
     ) = remoteRepository.getDetailTvShow(tvId, callback)
+
+    override fun getAllAiringTodayTvShow(
+            callback: MutableLiveData<TvShowState>,
+            data: MutableLiveData<PagedList<DataTvShow>>
+    ) = remoteRepository.getAllAiringTodayTvShow(callback, data)
+
+    override fun getAllTopRatedTvShow(
+            callback: MutableLiveData<TvShowState>,
+            data: MutableLiveData<PagedList<DataTvShow>>
+    ) = remoteRepository.getAllTopRatedTvShow(callback, data)
+
+    override fun getAllPopularTvShow(
+            callback: MutableLiveData<TvShowState>,
+            data: MutableLiveData<PagedList<DataTvShow>>
+    ) = remoteRepository.getAllPopularTvShow(callback, data)
 
     override fun searchTvShow(
             query: String,

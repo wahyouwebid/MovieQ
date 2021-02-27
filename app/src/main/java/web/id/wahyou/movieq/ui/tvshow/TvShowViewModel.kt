@@ -10,11 +10,27 @@ class TvShowViewModel @ViewModelInject constructor(
     val repository: Repository
 ) : ViewModel() {
 
-    val state : MutableLiveData<TvShowState> by lazy {
+    val stateAiringToday : MutableLiveData<TvShowState> by lazy {
         MutableLiveData<TvShowState>()
     }
 
-    fun getTvShow() {
-        repository.getTvShow(state)
+    val stateTopRated : MutableLiveData<TvShowState> by lazy {
+        MutableLiveData<TvShowState>()
+    }
+
+    val statePopular : MutableLiveData<TvShowState> by lazy {
+        MutableLiveData<TvShowState>()
+    }
+
+    fun getAiringTodayTvShow() {
+        repository.getAiringTodayTvShow(stateAiringToday)
+    }
+
+    fun getTopRatedTvShow() {
+        repository.getTopRatedTvShow(stateTopRated)
+    }
+
+    fun getPopularTvShow() {
+        repository.getPopularTvShow(statePopular)
     }
 }

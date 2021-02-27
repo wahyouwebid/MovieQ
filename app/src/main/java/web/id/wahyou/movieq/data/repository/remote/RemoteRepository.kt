@@ -130,8 +130,28 @@ class RemoteRepository @Inject constructor(
         }
     }
 
-    override fun getTvShow(callback: MutableLiveData<TvShowState>) {
-        apiService.getTvShow()
+    override fun getAiringTodayTvShow(callback: MutableLiveData<TvShowState>) {
+        apiService.getAiringTodayTvShow()
+                .map<TvShowState>(TvShowState::Result)
+                .onErrorReturn(TvShowState::Error)
+                .toFlowable()
+                .startWith(TvShowState.Loading)
+                .subscribe(callback::postValue)
+                .let { return@let disposable::add}
+    }
+
+    override fun getTopRatedTvShow(callback: MutableLiveData<TvShowState>) {
+        apiService.getTopRatedTvShow()
+                .map<TvShowState>(TvShowState::Result)
+                .onErrorReturn(TvShowState::Error)
+                .toFlowable()
+                .startWith(TvShowState.Loading)
+                .subscribe(callback::postValue)
+                .let { return@let disposable::add}
+    }
+
+    override fun getPopularTvShow(callback: MutableLiveData<TvShowState>) {
+        apiService.getPopularTvShow()
                 .map<TvShowState>(TvShowState::Result)
                 .onErrorReturn(TvShowState::Error)
                 .toFlowable()
@@ -148,6 +168,48 @@ class RemoteRepository @Inject constructor(
                 .startWith(DetailTvShowState.Loading)
                 .subscribe(callback::postValue)
                 .let { return@let disposable::add}
+    }
+
+    override fun getAllAiringTodayTvShow(
+            callback: MutableLiveData<TvShowState>,
+            data: MutableLiveData<PagedList<DataTvShow>>
+    ) {
+        CoroutineScope(Dispatchers.Main).launch {
+            LivePagedListBuilder(
+                    factory.airingTvShowDataFactory.also {
+                        it.liveData = callback
+                    },
+                    config
+            ).build().observeForever(data::postValue)
+        }
+    }
+
+    override fun getAllTopRatedTvShow(
+            callback: MutableLiveData<TvShowState>,
+            data: MutableLiveData<PagedList<DataTvShow>>
+    ) {
+        CoroutineScope(Dispatchers.Main).launch {
+            LivePagedListBuilder(
+                    factory.topRatedTvShowDataFactory.also {
+                        it.liveData = callback
+                    },
+                    config
+            ).build().observeForever(data::postValue)
+        }
+    }
+
+    override fun getAllPopularTvShow(
+            callback: MutableLiveData<TvShowState>,
+            data: MutableLiveData<PagedList<DataTvShow>>
+    ) {
+        CoroutineScope(Dispatchers.Main).launch {
+            LivePagedListBuilder(
+                    factory.popularTvShowDataFactory.also {
+                        it.liveData = callback
+                    },
+                    config
+            ).build().observeForever(data::postValue)
+        }
     }
 
     override fun searchTvShow(
