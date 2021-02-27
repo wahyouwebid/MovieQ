@@ -16,9 +16,11 @@ import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.databinding.FragmentTvshowBinding
 import web.id.wahyou.movieq.state.TvShowState
 import web.id.wahyou.movieq.ui.search.tvshow.SearchTvShowActivity
-import web.id.wahyou.movieq.ui.tvshow.adapter.HorizontalTvAdapter
-import web.id.wahyou.movieq.ui.tvshow.adapter.VerticalTvAdapter
+import web.id.wahyou.movieq.ui.tvshow.adapter.HorizontalTvShowAdapter
+import web.id.wahyou.movieq.ui.tvshow.adapter.VerticalTvShowAdapter
+import web.id.wahyou.movieq.ui.tvshow.airingtoday.AiringTodayTvShowActivity
 import web.id.wahyou.movieq.ui.tvshow.detail.DetailTvShowActivity
+import web.id.wahyou.movieq.ui.tvshow.popular.PopularTvShowActivity
 import web.id.wahyou.movieq.utils.Utils.delay
 
 @AndroidEntryPoint
@@ -30,16 +32,16 @@ class TvShowFragment : Fragment() {
         FragmentTvshowBinding.inflate(layoutInflater)
     }
 
-    private val adapterAiringToday: HorizontalTvAdapter by lazy {
-        HorizontalTvAdapter{ item -> detailTvShow(item)}
+    private val adapterAiringToday: HorizontalTvShowAdapter by lazy {
+        HorizontalTvShowAdapter{ item -> detailTvShow(item)}
     }
 
-    private val adapterTopRated: HorizontalTvAdapter by lazy {
-        HorizontalTvAdapter{ item -> detailTvShow(item)}
+    private val adapterTopRated: HorizontalTvShowAdapter by lazy {
+        HorizontalTvShowAdapter{ item -> detailTvShow(item)}
     }
 
-    private val adapterPopular: VerticalTvAdapter by lazy {
-        VerticalTvAdapter{ item -> detailTvShow(item)}
+    private val adapterPopular: VerticalTvShowAdapter by lazy {
+        VerticalTvShowAdapter{ item -> detailTvShow(item)}
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -106,6 +108,10 @@ class TvShowFragment : Fragment() {
 
             search.setOnClickListener {
                 startActivity(Intent(requireContext(), SearchTvShowActivity::class.java))
+            }
+
+            tvSeeAiringToday.setOnClickListener {
+                startActivity(Intent(requireContext(), PopularTvShowActivity::class.java))
             }
         }
     }

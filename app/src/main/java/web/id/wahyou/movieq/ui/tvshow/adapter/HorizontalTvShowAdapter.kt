@@ -8,10 +8,11 @@ import com.bumptech.glide.Glide
 import web.id.wahyou.movieq.BuildConfig.imageUrl
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.databinding.AdapterHorizontalTvBinding
+import web.id.wahyou.movieq.utils.Utils
 
-class HorizontalTvAdapter (
+class HorizontalTvShowAdapter (
     private val showDetail: (DataTvShow) -> Unit
-) : RecyclerView.Adapter<HorizontalTvAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<HorizontalTvShowAdapter.ViewHolder>() {
 
     private var data = ArrayList<DataTvShow>()
 
@@ -25,7 +26,9 @@ class HorizontalTvAdapter (
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder.view) {
+            val newRating = Utils.nomalizeRating(data[position].vote_average!!.toFloat())
             tvTitle.text = data[position].name
+            rating.rating = newRating
 
             holder.itemView.also {
                 Glide.with(it.context)

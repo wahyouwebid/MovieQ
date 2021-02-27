@@ -35,7 +35,7 @@ class UpcomingMovieActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupStatusBar()
         setupView()
-        getData()
+        setupData()
         setupViewModel()
     }
 
@@ -53,7 +53,7 @@ class UpcomingMovieActivity : AppCompatActivity() {
         }
     }
 
-    private fun getData() {
+    private fun setupData() {
         viewModel.getMovie()
     }
 

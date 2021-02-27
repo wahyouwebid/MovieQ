@@ -9,9 +9,9 @@ import web.id.wahyou.movieq.BuildConfig.imageUrl
 import web.id.wahyou.movieq.data.model.tvshow.DataTvShow
 import web.id.wahyou.movieq.databinding.AdapterVerticalTvshowBinding
 
-class VerticalTvAdapter (
+class VerticalTvShowAdapter (
     private val showDetail: (DataTvShow) -> Unit
-) : RecyclerView.Adapter<VerticalTvAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<VerticalTvShowAdapter.ViewHolder>() {
 
     private var data = ArrayList<DataTvShow>()
 
