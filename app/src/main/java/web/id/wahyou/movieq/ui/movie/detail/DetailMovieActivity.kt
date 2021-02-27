@@ -7,6 +7,7 @@ import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +19,7 @@ import web.id.wahyou.movieq.data.model.movie.DataMovie
 import web.id.wahyou.movieq.databinding.ActivityDetailMovieBinding
 import web.id.wahyou.movieq.databinding.BottomSheetBinding
 import web.id.wahyou.movieq.state.DetailMovieState
+import web.id.wahyou.movieq.ui.movie.adapter.ProductionCompanyAdapter
 import web.id.wahyou.movieq.utils.Utils.dateFormat
 import web.id.wahyou.movieq.utils.Utils.delay
 
@@ -34,6 +36,10 @@ class DetailMovieActivity : AppCompatActivity() {
         intent.getParcelableExtra("data")
     }
 
+    private val adapterProduction : ProductionCompanyAdapter by lazy {
+        ProductionCompanyAdapter()
+    }
+
     private val dataLocal by lazy {
         MovieMapper.mapResponseToEntity(data!!)
     }
@@ -43,6 +49,7 @@ class DetailMovieActivity : AppCompatActivity() {
         setContentView(binding.root)
         delay()
         setupStatusBar()
+        setupView()
         setupViewModel()
         setupListener()
     }
@@ -65,6 +72,18 @@ class DetailMovieActivity : AppCompatActivity() {
 
         viewModel.checkFavorite(dataLocal)
         viewModel.getDetailMovie(data!!.id)
+    }
+
+    private fun setupView() {
+        with(binding) {
+            rvProduction.also {
+                it.adapter = adapterProduction
+                it.layoutManager = LinearLayoutManager(
+                        this@DetailMovieActivity,
+                        LinearLayoutManager.HORIZONTAL ,false)
+                it.setHasFixedSize(true)
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -92,6 +111,8 @@ class DetailMovieActivity : AppCompatActivity() {
             btnFavorite.setOnClickListener {
                 viewModel.addToFavorite(dataLocal)
             }
+
+            adapterProduction.setData(response.production_companies)
         }
     }
 

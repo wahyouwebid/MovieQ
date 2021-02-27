@@ -151,7 +151,7 @@
                     android:layout_marginStart="@dimen/margin_8"
                     android:text="@string/title_description"
                     android:textColor="@color/colorText"
-                    android:textSize="@dimen/font_20"
+                    android:textSize="@dimen/font_18"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/viewDes"
                     app:layout_constraintStart_toEndOf="@+id/viewDes"
@@ -178,12 +178,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
                 <TextView
-                    android:id="@+id/tvLabelCast"
+                    android:id="@+id/tvLabelProduction"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_cast"
+                    android:text="@string/title_production"
                     android:textColor="@color/colorText"
-                    android:textSize="@dimen/font_20"
+                    android:textSize="@dimen/font_18"
                     android:textStyle="bold"
                     android:layout_marginStart="@dimen/margin_8"
                     app:layout_constraintBottom_toBottomOf="@+id/viewCast"
@@ -191,7 +191,7 @@
                     app:layout_constraintTop_toTopOf="@+id/viewCast" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvCast"
+                    android:id="@+id/rvProduction"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="@dimen/margin_8"

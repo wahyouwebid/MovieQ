@@ -15,13 +15,14 @@
     <string name="title_des_poster">Content Image Poster</string>
     <string name="title_content_des_img_back">Content Image Back</string>
     <string name="title_detail">Detail</string>
-    <string name="title_description">Description</string>
+    <string name="title_description">Overview</string>
     <string name="title_error">Terjadi Kesalahan</string>
     <string name="title_error_content">Silahkan coba lagi atau hubungi kontak pengembang</string>
     <string name="title_error_ok">Oke, Saya mengerti</string>
     <string name="title_viewers">. Viewers</string>
     <string name="title_see_all">See all</string>
     <string name="title_cast">Cast</string>
+    <string name="title_production">Production</string>
     <string name="title_search">Search Movies Or TV</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_tab_movie">Movie</string>
