@@ -3,7 +3,8 @@
     <string name="title_home">Home</string>
     <string name="title_movie">Movie</string>
     <string name="title_tvshow">TV Show</string>
-    <string name="title_welcome">Search Movies</string>
+    <string name="title_search_movie">Search Movies</string>
+    <string name="title_search_tv_show">Search TV Show</string>
     <string name="title_content_des_img_logo">Content Image Back</string>
     <string name="title_content_des_info">Content Image Info</string>
     <string name="title_content_des_img_favo">Content image Favorite</string>
@@ -22,7 +23,6 @@
     <string name="title_see_all">See all</string>
     <string name="title_cast">Cast</string>
     <string name="title_search">Search Movies Or TV</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_tab_movie">Movie</string>
     <string name="title_tab_tvshow">TV Show</string>

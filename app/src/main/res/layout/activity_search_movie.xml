@@ -46,7 +46,7 @@
                 android:layout_marginStart="@dimen/margin_16"
                 android:layout_toEndOf="@+id/imgBack"
                 android:background="@drawable/shp_background_search"
-                android:hint="@string/title_search"
+                android:hint="@string/title_search_movie"
                 android:textSize="14sp"
                 android:drawableStart="@drawable/ic_search_small"
                 android:drawablePadding="@dimen/margin_8"/>

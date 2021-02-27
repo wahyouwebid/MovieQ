@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.search.tvshow.SearchTvShowActivity">
+    tools:context=".ui.search.tvshow.SearchTvShowActivity"
+    android:paddingTop="36dp">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -45,7 +46,7 @@
                 android:layout_marginStart="@dimen/margin_16"
                 android:layout_toEndOf="@+id/imgBack"
                 android:background="@drawable/shp_background_search"
-                android:hint="@string/title_search"
+                android:hint="@string/title_search_tv_show"
                 android:textSize="14sp"
                 android:drawableStart="@drawable/ic_search_small"
                 android:drawablePadding="@dimen/margin_8"/>
@@ -82,13 +83,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/placeholder_movie" />
+                <include layout="@layout/placeholder_tv" />
 
-                <include layout="@layout/placeholder_movie" />
+                <include layout="@layout/placeholder_tv" />
 
-                <include layout="@layout/placeholder_movie" />
+                <include layout="@layout/placeholder_tv" />
 
-                <include layout="@layout/placeholder_movie" />
+                <include layout="@layout/placeholder_tv" />
             </LinearLayout>
 
         </ScrollView>

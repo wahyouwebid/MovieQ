@@ -46,7 +46,7 @@
                     android:layout_height="@dimen/size_42"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="@string/title_welcome"
+                    android:text="@string/title_search_movie"
                     android:textSize="13sp" />
 
             </LinearLayout>
