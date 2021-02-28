@@ -26,13 +26,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'baseUrl', '"https://api.themoviedb.org/3/"'
             buildConfigField 'String', 'imageUrl', '"https://image.tmdb.org/t/p/original/"'
-            buildConfigField 'String', 'apiKey', '"c93f2f9744a4e035a26887778d582a16"'
+            buildConfigField 'String', 'apiKey', '"c7f7d1dc5a6aa58fd2f3602748ad9c64"'
             buildConfigField 'String', 'youtubeUrl', '"https://img.youtube.com/vi/"'
         }
         debug {
             buildConfigField 'String', 'baseUrl', '"https://api.themoviedb.org/3/"'
             buildConfigField 'String', 'imageUrl', '"https://image.tmdb.org/t/p/original/"'
-            buildConfigField 'String', 'apiKey', '"c93f2f9744a4e035a26887778d582a16"'
+            buildConfigField 'String', 'apiKey', '"c7f7d1dc5a6aa58fd2f3602748ad9c64"'
             buildConfigField 'String', 'youtubeUrl', '"https://img.youtube.com/vi/"'
         }
     }
@@ -111,6 +111,7 @@ dependencies {
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
     implementation "androidx.paging:paging-rxjava2-ktx:$paging_version"
 
+    //Room
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
