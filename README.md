@@ -8,6 +8,13 @@ Android Movies build with Component Architechtures, Jetpack Pagination, Room, Rx
 * **TV Favorite** - menampilkan daftar tv yang sudah ditambahkan sebagai favorite
 * **Search Movie & TV** - untuk melakukan pencarian movie & tv
 
+### Screenshot
+<span align="center">
+ <hr>
+ <p align="center"><img src="screenshot/banner.png" alt="MovieQ Screenshot" width="850" height="500"></p>
+ <p align="center">Screenshot</p>
+ <hr>
+ </span>
 
 ### API
 Api yang digunakan dalam project ini yaitu https://developers.themoviedb.org
@@ -33,11 +40,3 @@ https://developers.themoviedb.org/3/
 |GET| `/tv/{tv_id}` | Get TV Detail.| 
 |GET| `/tv/popular` | Get TV Popular.| 
 |GET| `/tv/top_rated` | Get TV Top Rated.| 
-
-### Screenshot
-<span align="center">
- <hr>
- <p align="center"><img src="screenshot/banner.png" alt="MovieQ Screenshot" width="850" height="500"></p>
- <p align="center">Screenshot</p>
- <hr>
- </span>
