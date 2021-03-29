@@ -13,6 +13,14 @@ import web.id.wahyou.movieq.databinding.TabLayoutBinding
 import web.id.wahyou.movieq.ui.favorite.movie.FavoriteMovieFragment
 import web.id.wahyou.movieq.ui.favorite.tvshow.FavoriteTvShowFragment
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 @AndroidEntryPoint
 class FavoriteActivity : AppCompatActivity() {
 

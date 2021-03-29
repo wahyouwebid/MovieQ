@@ -6,6 +6,14 @@ import androidx.lifecycle.ViewModel
 import web.id.wahyou.movieq.data.repository.Repository
 import web.id.wahyou.movieq.state.MovieState
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 class MovieViewModel @ViewModelInject constructor(
     private val repository: Repository
 ) : ViewModel() {

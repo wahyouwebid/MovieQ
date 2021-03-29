@@ -10,6 +10,14 @@ import web.id.wahyou.movieq.data.database.dao.TvShowDao
 import web.id.wahyou.movieq.data.database.model.MovieEntity
 import web.id.wahyou.movieq.data.database.model.TvShowEntity
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 @Database(
     entities = [
         MovieEntity::class,

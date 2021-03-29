@@ -22,6 +22,14 @@ import web.id.wahyou.movieq.data.source.tv.SearchTvDataSource
 import web.id.wahyou.movieq.data.source.tv.TopRatedTvDataSource
 import javax.inject.Singleton
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 @Module
 @InstallIn(ApplicationComponent::class)
 class DataFactoryModule {

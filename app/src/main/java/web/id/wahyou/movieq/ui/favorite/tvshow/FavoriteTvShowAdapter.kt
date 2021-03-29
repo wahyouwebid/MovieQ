@@ -11,6 +11,13 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import web.id.wahyou.movieq.data.database.model.TvShowEntity
 import web.id.wahyou.movieq.databinding.AdapterVerticalTvshowBinding
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
 
 class FavoriteTvShowAdapter (
     private val showDetail: (TvShowEntity) -> Unit

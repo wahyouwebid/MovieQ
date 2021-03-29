@@ -7,6 +7,14 @@ import web.id.wahyou.movieq.data.source.movie.PopularMovieDataSource
 import web.id.wahyou.movieq.state.MovieState
 import javax.inject.Inject
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 class PopularMovieDataFactory @Inject constructor(
     private val popularMovieDataSource: PopularMovieDataSource
 ) : DataSource.Factory<Int, DataMovie>(){

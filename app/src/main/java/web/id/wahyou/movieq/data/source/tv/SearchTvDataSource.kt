@@ -9,6 +9,14 @@ import web.id.wahyou.movieq.state.TvShowState
 import web.id.wahyou.movieq.utils.EspressoIdlingResource
 import javax.inject.Inject
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 class SearchTvDataSource @Inject constructor(
     private val apiService: ApiService
 ) : PageKeyedDataSource<Int, DataTvShow>(){

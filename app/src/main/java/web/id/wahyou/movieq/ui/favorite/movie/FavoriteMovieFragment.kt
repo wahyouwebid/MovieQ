@@ -18,6 +18,14 @@ import web.id.wahyou.movieq.databinding.FragmentFavoriteMovieBinding
 import web.id.wahyou.movieq.ui.movie.detail.DetailMovieActivity
 import web.id.wahyou.movieq.utils.Utils.sheetBehavior
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 @AndroidEntryPoint
 class FavoriteMovieFragment : Fragment() {
 

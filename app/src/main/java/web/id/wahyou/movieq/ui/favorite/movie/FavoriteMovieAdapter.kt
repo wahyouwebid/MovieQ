@@ -16,6 +16,14 @@ import web.id.wahyou.movieq.databinding.AdapterMovieBinding
 import web.id.wahyou.movieq.utils.Constant.Genres
 import web.id.wahyou.movieq.utils.Utils
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 
 class FavoriteMovieAdapter (
     private val showDetail: (MovieEntity) -> Unit

@@ -10,6 +10,14 @@ import web.id.wahyou.movieq.data.model.movie.ResponseMovie
 import web.id.wahyou.movieq.data.model.tvshow.ResponseTvShow
 import web.id.wahyou.movieq.data.model.videos.ResponseVideo
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 interface ApiService {
 
     //Movie

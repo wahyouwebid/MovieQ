@@ -1,5 +1,13 @@
 package web.id.wahyou.movieq.utils
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 object Constant {
     const val NOW_PLAYING = "now_playing"
     const val UPCOMING = "upcoming"

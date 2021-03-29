@@ -13,6 +13,14 @@ import web.id.wahyou.movieq.data.repository.Repository
 import web.id.wahyou.movieq.state.*
 import javax.inject.Inject
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 class LocalRepository @Inject constructor(
     private val database: RoomDb,
     private val config: PagedList.Config

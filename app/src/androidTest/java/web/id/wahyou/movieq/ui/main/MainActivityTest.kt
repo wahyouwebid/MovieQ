@@ -18,6 +18,13 @@ import org.junit.runner.RunWith
 import web.id.wahyou.movieq.R
 import web.id.wahyou.movieq.utils.EspressoIdlingResource
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
 
 @HiltAndroidTest
 @RunWith(AndroidJUnit4ClassRunner::class)
@@ -51,6 +58,9 @@ class MainActivityTest{
                 .perform(click())
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(withId(R.id.navigation_tvshow))
+                .perform(click())
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.navigation_movie))
                 .perform(click())
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(withId(R.id.navigation_movie))

@@ -10,6 +10,14 @@ import web.id.wahyou.movieq.utils.Constant.UPCOMING
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 @Singleton
 class UpcomingMovieDataSource @Inject constructor(
     private val apiService: ApiService

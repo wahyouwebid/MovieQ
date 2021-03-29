@@ -7,6 +7,14 @@ import dagger.hilt.android.components.ApplicationComponent
 import web.id.wahyou.movieq.data.repository.DataRepository
 import web.id.wahyou.movieq.data.repository.Repository
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 @Module
 @InstallIn(ApplicationComponent::class)
 abstract class BindingModule {

@@ -10,6 +10,14 @@ import web.id.wahyou.movieq.utils.Constant.POPULAR
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 @Singleton
 class PopularMovieDataSource @Inject constructor(
     private val apiService: ApiService

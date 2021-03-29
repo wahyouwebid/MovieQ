@@ -16,7 +16,6 @@ import web.id.wahyou.movieq.databinding.AdapterMovieBinding
 import web.id.wahyou.movieq.utils.Constant.Genres
 import web.id.wahyou.movieq.utils.Utils
 
-
 class SearchMovieAdapter (
     private val showDetail: (DataMovie) -> Unit
 ) : PagedListAdapter<DataMovie, SearchMovieAdapter.ViewHolder>(DIFF_CALLBACK) {

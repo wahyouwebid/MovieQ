@@ -15,6 +15,14 @@ import web.id.wahyou.movieq.data.repository.Repository
 import web.id.wahyou.movieq.state.MovieState
 import java.util.concurrent.TimeUnit
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 class SearchMovieViewModel @ViewModelInject constructor(
     val repository : Repository
 ): ViewModel() {

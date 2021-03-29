@@ -13,6 +13,14 @@ import web.id.wahyou.movieq.data.repository.local.LocalRepository
 import web.id.wahyou.movieq.data.repository.remote.RemoteRepository
 import javax.inject.Singleton
 
+/**
+ * Created by : wahyouwebid.
+ * Email : hello@wahyou.web.id.
+ * Linkedin : linkedin.com/in/wahyouwebid.
+ * Instagram : instagram.com/wahyouwebid.
+ * Portopolio : wahyou.web.id.
+ */
+
 @Module
 @InstallIn(ApplicationComponent::class)
 class RepositoryModule {
